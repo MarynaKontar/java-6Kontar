@@ -13,9 +13,9 @@ public class Module2HomeWork1 {
 
         //                              Initialize arrays
         //initialize integer array
-        int[] inputIntegerArray = integerArray(n, RANGE);
+        //int[] inputIntegerArray = integerArray(n, RANGE);
         //You can create your own array
-        //int[] inputIntegerArray = {-900, -9, -9, -9, -9};//{12, -34, 100, 100, 0, -12456, 356, 356, -234, 0};//
+        int[] inputIntegerArray = {900, -9, 9, -9, -9};//{12, -34, 100, 100, 0, -12456, 356, 356, -234, 0};//
 
 
         //initialize double array
@@ -253,7 +253,7 @@ public class Module2HomeWork1 {
         int largest, secondLargest;
         if (array.length == 1) {
             secondLargest = -1;
-        } else {
+        } else {        //array.length > 1
             secondLargest = array[0];
             largest = array[1];
             for (int i = 0; i < array.length; i++) {
