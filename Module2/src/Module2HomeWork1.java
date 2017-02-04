@@ -1,7 +1,10 @@
+import java.math.BigDecimal;
 import java.util.Random;
 
 /**
- * Created by User on 30.01.2017.
+ * Java#6
+ * Module 2 Home work 1
+ * REWRITE METHODS SUM AND MULTIPLICATION WITH RECURSION
  */
 public class Module2HomeWork1 {
     public static void main(String[] args) {
@@ -15,13 +18,13 @@ public class Module2HomeWork1 {
         //initialize integer array
         //int[] inputIntegerArray = integerArray(n, RANGE);
         //You can create your own array
-        int[] inputIntegerArray = {900, -9, 9, -9, -9};//{12, -34, 100, 100, 0, -12456, 356, 356, -234, 0};//
+        int[] inputIntegerArray = {9, -9, 9, -10, -9};//{12, -34, 100, 100, 0, -12456, 356, 356, -234, 0};//
 
 
         //initialize double array
-        double[] inputDoubleArray = doubleArray(n, RANGE);
+        //double[] inputDoubleArray = doubleArray(n, RANGE);
         //You can create your own array
-        //double[] inputDoubleArray = {-2.0,-7,-90};//{0.89, -34.78, 100.2355, 100.0, 0, -12456.45, 356.0, 356.0, -234.67, 0};//
+        double[] inputDoubleArray = {-2.0,-7,-90};//{0.89, -34.78, 100.2355, 100.0, 0, -12456.45, 356.0, 356.0, -234.67, 0};//
 
 
         /**Print arrays, their sum, min, max, modulus of first and last element, max positive,
@@ -29,13 +32,15 @@ public class Module2HomeWork1 {
          */
         //                              Integer array
         print(inputIntegerArray);
-        System.out.println("Sum of array elements is " + sum(inputIntegerArray));
+        System.out.println("Sum of array elements is " +
+                sum(inputIntegerArray, inputIntegerArray.length - 1));
         System.out.println("Min value in array is " + min(inputIntegerArray));
         System.out.println("Max value in array is " + max(inputIntegerArray));
         int mPositiveInt = maxPositive(inputIntegerArray);
         System.out.println((mPositiveInt == -1) ? "There is no positive elements in the array." :
                 "Max positive value in array is " + mPositiveInt);
-        System.out.println("Multiplication of array's elements is " + multiplication(inputIntegerArray));
+        System.out.println("Multiplication of array's elements is " +
+                multiplication(inputIntegerArray, inputIntegerArray.length - 1));
 
         int[] modulusInteger = modulus(inputIntegerArray);
         System.out.println((modulusInteger[1] == -1) ?
@@ -50,13 +55,14 @@ public class Module2HomeWork1 {
 
         //                              Double array
         print(inputDoubleArray);
-        System.out.println("Sum of array elements is " + sum(inputDoubleArray));
+        System.out.println("Sum of array elements is " + sum(inputDoubleArray, inputDoubleArray.length - 1));
         System.out.println("Min value in array is " + min(inputDoubleArray));
         System.out.println("Max value in array is " + max(inputDoubleArray));
         double mPositiveDouble = maxPositive(inputDoubleArray);
         System.out.println((mPositiveDouble == -1) ? "There is no positive elements in the array." :
                 "Max positive value in array is " + mPositiveDouble);
-        System.out.println("Multiplication of array's elements is " + multiplication(inputDoubleArray));
+        System.out.println("Multiplication of array's elements is " +
+                multiplication(inputDoubleArray, inputDoubleArray.length - 1));
 
         double[] modulusDouble = modulus(inputDoubleArray);
         System.out.println((modulusDouble[1] == -1) ?
@@ -78,12 +84,18 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static int sum(int[] array) {
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
-        }
-        return sum;
+//    static int sum(int[] array) {
+//        int summ = 0;
+//        for (int i = 0; i < array.length; i++) {
+//            summ += array[i];
+//        }
+//        return summ;
+//    }
+
+    private static int sum(int[] array, int indexToBegin){
+        if(indexToBegin == 0)
+            return array[indexToBegin];
+        return array[indexToBegin] + sum(array, indexToBegin - 1);
     }
 
     /**
@@ -92,20 +104,27 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static double sum(double[] array) {
-        double sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
-        }
-        return sum;
+//    static double sum(double[] array) {
+//        double sum = 0;
+//        for (int i = 0; i < array.length; i++) {
+//            sum += array[i];
+//        }
+//        return sum;
+//    }
+
+    private static double sum(double[] array, int indexToBegin){
+        if(indexToBegin == 0)
+            return array[indexToBegin];
+        return array[indexToBegin] + sum(array, indexToBegin - 1);
     }
+
 
     /**
      * return minimum element of integer array
      * @param array
      * @return
      */
-    static int min(int[] array) {
+    private static int min(int[] array) {
         int min = array[0];
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min)
@@ -119,7 +138,7 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static int max(int[] array) {
+    private static int max(int[] array) {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
             if (array[i] > max)
@@ -131,7 +150,7 @@ public class Module2HomeWork1 {
     /**
      * method return minimum element of double array
      */
-    static double min(double[] array) {
+    private static double min(double[] array) {
         double min = array[0];
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min)
@@ -143,7 +162,7 @@ public class Module2HomeWork1 {
     /**
      * method return maximum element of double array
      */
-    static double max(double[] array) {
+    private static double max(double[] array) {
         double max = array[0];
         for (int i = 0; i < array.length; i++) {
             if (array[i] > max)
@@ -158,7 +177,7 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static int maxPositive(int[] array) {
+    private static int maxPositive(int[] array) {
         int maxPos = max(array);
         if (maxPos < 0) maxPos = -1;
         return maxPos;
@@ -170,7 +189,7 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static double maxPositive(double[] array) {
+    private static double maxPositive(double[] array) {
         double maxPos = max(array);
         if (maxPos < 0) maxPos = -1;
         return maxPos;
@@ -184,25 +203,44 @@ public class Module2HomeWork1 {
      * or there are big values, change int multiplication to long multiplication
      * or overload this method for all cases (small values - int, big values/number_of_elements - long)
      */
-    static int multiplication(int[] array) {
-        int multiplication = 1;
-        for (int i = 0; i < array.length; i++) {
-            multiplication *= array[i];
+//    static int multiplication(int[] array) {
+//        int multiplication = 1;
+//        for (int i = 0; i < array.length; i++) {
+//            multiplication *= array[i];
+//        }
+//        return multiplication;
+//    }
+
+    private static long multiplication(int[] randomArray, int indexToBegin) {
+
+        if (indexToBegin == 0) {
+            return (long) randomArray[indexToBegin];
         }
-        return multiplication;
+        return randomArray[indexToBegin] * multiplication(randomArray, indexToBegin - 1);
+//        return Math.multiplyExact(randomArray[indexToBegin], multiplication(randomArray, indexToBegin - 1));
     }
+
 
     /**
      * method return multiplication of double array elements
      * This method does not work correctly when multiplication
      * is outside the range - 1,8*10^308 : - 1,8*10^308
      */
-    static double multiplication(double[] array) {
-        double multiplication = 1;
-        for (int i = 0; i < array.length; i++) {
-            multiplication *= array[i];
+//    static double multiplication(double[] array) {
+//        double multiplication = 1;
+//        for (int i = 0; i < array.length; i++) {
+//            multiplication *= array[i];
+//        }
+//        return multiplication;
+//    }
+
+    private static double multiplication(double[] randomArray, int indexToBegin) {
+
+        if (indexToBegin == 0) {
+            return randomArray[indexToBegin];
         }
-        return multiplication;
+        return randomArray[indexToBegin] * multiplication(randomArray, indexToBegin - 1);
+//        return Math.multiplyExact(randomArray[indexToBegin], multiplication(randomArray, indexToBegin - 1));
     }
 
     /**
@@ -211,7 +249,7 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static int[] modulus(int[] array) {
+    private static int[] modulus(int[] array) {
         int[] mod = new int[2];
         if (array.length == 1){
             mod[0] = Math.abs(array[0]); //(array[0] >= 0) ? array[0] : -array[0];
@@ -231,7 +269,7 @@ public class Module2HomeWork1 {
      * @param array
      * @return
      */
-    static double[] modulus(double[] array) {
+    private static double[] modulus(double[] array) {
         double[] mod = new double[2];
         if (array.length == 1){
             mod[0] = Math.abs(array[0]);
@@ -249,7 +287,7 @@ public class Module2HomeWork1 {
      * if the matrix elements are equals or matrix has only one element
      * it returns -1
      */
-    static int secondLargest(int[] array) {
+    private static int secondLargest(int[] array) {
         int largest, secondLargest;
         if (array.length == 1) {
             secondLargest = -1;
@@ -273,7 +311,7 @@ public class Module2HomeWork1 {
      * if the matrix elements are equals or matrix has only one element
      * it returns -1
      */
-    static double secondLargest(double[] array) {
+    private static double secondLargest(double[] array) {
         double largest, secondLargest;
         if (array.length == 1) {
             secondLargest = -1;
@@ -300,7 +338,7 @@ public class Module2HomeWork1 {
      * @param range
      * @return
      */
-    static int[] integerArray(int n, int range) {
+    private static int[] integerArray(int n, int range) {
         int[] inputArrayInteger = new int[n];
         Random rnd = new Random();
         for (int i = 0; i < inputArrayInteger.length; i++) {
@@ -317,7 +355,7 @@ public class Module2HomeWork1 {
      * @param range
      * @return
      */
-    static double[] doubleArray(int n, int range) {
+    private static double[] doubleArray(int n, int range) {
         double[] inputArrayDouble = new double[n];
         Random rnd = new Random();
         for (int i = 0; i < inputArrayDouble.length; i++) {
@@ -331,7 +369,7 @@ public class Module2HomeWork1 {
      *
      * @param inputArray
      */
-    static void print(int[] inputArray) {
+    private static void print(int[] inputArray) {
         System.out.println("Integer array: ");
         for (int v : inputArray) {
             System.out.print(v + "  ");
@@ -344,7 +382,7 @@ public class Module2HomeWork1 {
      *
      * @param inputArray
      */
-    static void print(double[] inputArray) {
+    private static void print(double[] inputArray) {
         System.out.println("Double array: ");
         for (double v : inputArray) {
             System.out.printf("%.2f  ", v);
