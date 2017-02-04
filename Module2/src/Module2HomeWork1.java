@@ -5,6 +5,7 @@ import java.util.Random;
  * Java#6
  * Module 2 Home work 1
  * REWRITE METHODS SUM AND MULTIPLICATION WITH RECURSION
+ *
  */
 public class Module2HomeWork1 {
     public static void main(String[] args) {
