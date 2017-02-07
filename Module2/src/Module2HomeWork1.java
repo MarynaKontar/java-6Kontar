@@ -76,7 +76,6 @@ public class Module2HomeWork1 {
                         "All array elements are equal " + inputDoubleArray[0] + ". " :
                 "Second largest element is " + secondLargestDouble);
 
-
     }
 
     /**

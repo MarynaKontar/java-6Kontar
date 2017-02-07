@@ -15,6 +15,7 @@ public class Module2HomeWork2 {
         double balance = 100;
         double withdrawal = 10; //99;
         print(balance, withdrawal);
+
     }
 
     /**
