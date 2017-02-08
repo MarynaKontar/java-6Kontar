@@ -33,9 +33,10 @@ public class Solution {
         Course softSkills = new Course(startOfCourse ,"Soft Skills");
 
         //Create array of courses
+        //TODO What is better to create an array of courses? And why?
         createCoursesArray(courses, art, javaForAndroid, algorithms,
                 programmingLanguages, softSkills);
-
+        //courses = new Course[]{art, javaForAndroid, algorithms, programmingLanguages, softSkills};
 
         //Initialize students
         Student rosovskiy = new Student("Pavel", "Rosovskiy", 7);
@@ -50,9 +51,12 @@ public class Solution {
             burtsev.setCollegeName("GoIt");
             burtsev.setCoursesTaken(courses);
 
-        SpecialStudent ponomarenko = new SpecialStudent("Andrey", "Ponomarenko", 4);
-        SpecialStudent firsov = new SpecialStudent("Alexsandr", "Firsov", 5, courses, "GoIt", 0, 678560);
-        SpecialStudent gingembre = new SpecialStudent("Guillaume", "Gingembre", 7, 455646767);
+        SpecialStudent ponomarenko = new SpecialStudent("Andrey", "Ponomarenko",
+                4);
+        SpecialStudent firsov = new SpecialStudent("Alexsandr", "Firsov",
+                5, courses, "GoIt", 0, 678560);
+        SpecialStudent gingembre = new SpecialStudent("Guillaume", "Gingembre",
+                7, 455646767);
         gingembre.setEmail("gguillaume@gmail.com");
 
 
@@ -60,17 +64,14 @@ public class Solution {
 
 
         //output information about students
-        System.out.println(rosovskiy.toString() + "\n");
-        System.out.println(ivashkov.toString() + "\n");
+        System.out.println(rosovskiy.toString());
+        System.out.println(ivashkov.toString());
         System.out.println(hizun.toString());
         System.out.println(kontar.toString());
         System.out.println(burtsev.toString());
         System.out.println(ponomarenko.toString());
         System.out.println(firsov.toString());
         System.out.println(gingembre.toString());
-
-
-
     }
 
     /**

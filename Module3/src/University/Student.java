@@ -57,26 +57,32 @@ public class Student {
     public Course[] getCoursesTaken() {
         return coursesTaken;
     }
-    /**TODO    //if I don't know coursesTaken length I can use Course... coursesTaken(find in google),
-     *  but I don't understand this. Can explain easier?
-    */
 
-    public void setCoursesTaken(Course... coursesTaken) {
+    /**TODO  if I don't know coursesTaken length I can use Course... coursesTaken,
+     * void setCoursesTaken(Course[] coursesTaken) also works. What variant I need to use?
+     * When I debbug, I have not noticed a difference
+    */
+    public void setCoursesTaken(Course... coursesTaken) { //setCoursesTaken(Course[] coursesTaken)
         this.coursesTaken = coursesTaken;
     }
-  /**  TODO if coursesTaken isn't empty I want to write names of courses (coursesTaken[i].getName()).
-   *  But I don't know how I can check whether the array coursesTaken is empty.
-   */
-/*
-   public String[] toStringCoursesTaken(Course... coursesTaken){
-        if (coursesTaken ПУСТОЙ) return ????;//?null
-        String[] s = new String[coursesTaken.length];
-        for (int i = 0; i < s.length; i++) {
-            s[i] = coursesTaken[i].getName();
-        }
-        return s;
-    }
-*/
+
+    /**
+     * This return string of courses taken by student
+     * TODO Do I correctly add strings?
+     * @param coursesTaken
+     * @return
+     */
+   public StringBuilder toStringCoursesTaken(Course[] coursesTaken) {
+       StringBuilder s = new StringBuilder();
+       if (coursesTaken != null) {
+           for (int i = 0; i < coursesTaken.length; i++) {
+               s.append(coursesTaken[i].getName() + ", ");
+           }
+           s.deleteCharAt(s.length() - 2);// delete last ","
+           return s;
+       }
+       return s;
+   }
 
     public int getAge() {
         return age;
@@ -86,11 +92,14 @@ public class Student {
         this.age = age;
     }
 
-    // TODO How can I check whether the array coursesTaken is empty?
+    /**
+     * This return information about student in string
+     * @return
+     */
     @Override
     public String toString() {
         return "Name: " + ((firstName == null)? "" : firstName) + " " +  lastName +
-                "\nGroup: " + ((group == 0)? "" : group);
-//                + ((coursesTaken.length == 0)? "" : toStringCoursesTaken(coursesTaken)) + "\n";
+                "\nGroup: " + ((group == 0)? "" : group) +
+                "\nCourses taken: " + toStringCoursesTaken(coursesTaken);
     }
 }
