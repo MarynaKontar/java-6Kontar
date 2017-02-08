@@ -12,11 +12,11 @@ public class Account {
     /**
      * Name of the account holder.
      */
-    String name;
+   private String name;
     /**
      * Current balance in th account.
      */
-    double balance;
+   private double balance;
 
     /**
      * Constructor initializes the fields
