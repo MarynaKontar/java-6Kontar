@@ -23,8 +23,14 @@ public class SpecialStudent extends CollegeStudent {
         super(firstName, lastName, group, coursesTaken, collegeName, rating, id);
     }
 
-    public SpecialStudent(String firstName, String lastName, int group, long secretKey){
-        this(firstName, lastName, group);
+//    public SpecialStudent(String firstName, String lastName, int group, long secretKey){
+//        this(firstName, lastName, group);
+//        this.secretKey = secretKey;
+//    }
+
+    //TODO change SpecialStudent constructor
+    public SpecialStudent(long secretKey){
+        this(null,null,0);
         this.secretKey = secretKey;
     }
 

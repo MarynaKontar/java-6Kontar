@@ -55,9 +55,12 @@ public class Solution {
                 4);
         SpecialStudent firsov = new SpecialStudent("Alexsandr", "Firsov",
                 5, courses, "GoIt", 0, 678560);
-        SpecialStudent gingembre = new SpecialStudent("Guillaume", "Gingembre",
-                7, 455646767);
-        gingembre.setEmail("gguillaume@gmail.com");
+//        SpecialStudent gingembre = new SpecialStudent("Guillaume", "Gingembre",
+//                7, 455646767);
+        SpecialStudent gingembre = new SpecialStudent(455646767);
+            gingembre.setFirstName("Guillaume");
+            gingembre.setLastName("Gingembre");
+            gingembre.setEmail("gguillaume@gmail.com");
 
 
 

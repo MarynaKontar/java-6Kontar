@@ -98,7 +98,7 @@ public class Student {
      */
     @Override
     public String toString() {
-        return "Name: " + ((firstName == null)? "" : firstName) + " " +  lastName +
+        return "Name: " + ((firstName == null)? "" : firstName) + " " +  ((lastName == null)? "" : lastName) +
                 "\nGroup: " + ((group == 0)? "" : group) +
                 "\nCourses taken: " + toStringCoursesTaken(coursesTaken);
     }
