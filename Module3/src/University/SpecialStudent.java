@@ -28,7 +28,7 @@ public class SpecialStudent extends CollegeStudent {
 //        this.secretKey = secretKey;
 //    }
 
-    //TODO change SpecialStudent constructor
+    //TODO 1.change SpecialStudent constructor
     public SpecialStudent(long secretKey){
         this(null,null,0);
         this.secretKey = secretKey;

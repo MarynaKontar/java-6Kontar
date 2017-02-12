@@ -3,17 +3,23 @@ package Bank;
 /**
  * Create User class with the following fields: String name, int balance,
  * int monthsOfEmployment, String companyName, int salary, String currency.
- * Create getters and setters and constructor with all fileds.
+ * Create getters and setters and constructor with all fields.
  * Write methods:
  * void paySalary() -  that add salary to the balance of the user
- * withdraw(int summ) - takes money from the balance with 5% commision
- *     if summ < 1000 and 10% commision in other cases
+ * withdraw(int summ) - takes money from the balance with 5% commission
+ *     if summ < 1000 and 10% commission in other cases
  * companyNameLenght - calculates name of the company name
  * monthIncreaser(int addMonth) - increase monthsOfEmployment by addMonth
  * @author Kontar Maryna
  */
 
 public class User {
+
+    private final int CHECK_SUM = 1000;
+    private final double COMMISSION_IF_SUM_LESS1000 = 0.05; // 5 %
+    private final double COMMISSION_IF_SUM_MORE1000 = 0.1; // 10 %
+
+
     private String name;
     private double balance;
     private double monthsOfEmployment;
@@ -82,21 +88,22 @@ public class User {
      * add salary to the balance of the user
      */
     public void paySalary(){
-        setBalance(getBalance() + getSalary());//balance + salary???
+        balance += salary;
+        //setBalance(getBalance() + getSalary());
     }
 
     /**
-     * takes money from the balance with 5% commision if summ < 1000 and
-     * 10% commision in other cases
+     * takes money from the balance with 5% commission if summ < CHECK_SUM and
+     * 10% commission in other cases
      * @param summ
      *
-     * TODO What is better (protected): balance -= 1.05 * summ;  or setBalance(getBalance() - 1.05 * summ)
+     * TODO 2. changed the commission and the checksum on a constant
      */
     public void withdraw(int summ){//withdraw from the account can only be an integer
-        if (summ < 1000 && balance > 1.05 * summ) {
-            balance -= 1.05 * summ;}
-            else if (summ >= 1000 && balance > 1.1 * summ){
-            balance -= 1.1 * summ;}
+        if (summ < CHECK_SUM && balance > (1 + COMMISSION_IF_SUM_LESS1000) * summ) {
+            balance -= (1 + COMMISSION_IF_SUM_LESS1000) * summ;}
+            else if (summ >= CHECK_SUM && balance > (1 + COMMISSION_IF_SUM_MORE1000) * summ){
+            balance -= (1 + COMMISSION_IF_SUM_MORE1000) * summ;}
             else System.out.println("Not enough money.");
     }
 
@@ -113,4 +120,13 @@ public class User {
         monthsOfEmployment += addMonth;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("name=").append(name);
+        sb.append("\n balance=").append(balance);
+        sb.append("\n companyName='").append(companyName).append("\'");
+        sb.append('}');
+        return sb.toString();
+    }
 }
