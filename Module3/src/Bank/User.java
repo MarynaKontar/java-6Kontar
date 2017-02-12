@@ -1,5 +1,7 @@
 package Bank;
 
+import java.text.DecimalFormat;
+
 /**
  * Create User class with the following fields: String name, int balance,
  * int monthsOfEmployment, String companyName, int salary, String currency.
@@ -18,6 +20,7 @@ public class User {
     private final int CHECK_SUM = 1000;
     private final double COMMISSION_IF_SUM_LESS1000 = 0.05; // 5 %
     private final double COMMISSION_IF_SUM_MORE1000 = 0.1; // 10 %
+    private  String PATTERN = "#0.00"; //view for double
 
 
     private String name;
@@ -122,9 +125,10 @@ public class User {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("name=").append(name);
-        sb.append("\n balance=").append(balance);
+        final StringBuilder sb = new StringBuilder(80);
+        String formattedBalance = new DecimalFormat(PATTERN).format(balance);
+        sb.append("User{name=").append(name);
+        sb.append("\n balance=").append(formattedBalance);
         sb.append("\n companyName='").append(companyName).append("\'");
         sb.append('}');
         return sb.toString();
