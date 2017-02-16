@@ -7,19 +7,19 @@ package module4.module4HomeWork;
  * commission - 5% if USD and up to 1000, 7% if USD and more than 1000
  * 2% if EUR and up to 1000 and 4% if EUR and more than 1000
  */
-public class EUBank extends Bank{
+public class EUBank extends Bank {
 
-    private final int LIMIT_OF_WITHDRAWAL_USD = 2000;
-    private final int LIMIT_OF_WITHDRAWAL_EUR = 2200;
-    private final int LIMIT_OF_FUNDING_EUR = 20000;
-    private final int LIMIT_OF_FUNDING_USD = 10000;
-    private final double MONTHLY_RATE_USD = 0.00;//0%
-    private final double MONTHLY_RATE_EUR = 0.01;//1%
-    private final int CHECKSUM = 1000;
-    private final double COMMISSION_UP_TO_CHECKSUM_USD = 0.05;//5%
-    private final double COMMISSION_MORE_THAN_CHECKSUM_USD = 0.07;//7%
-    private final double COMMISSION_UP_TO_CHECKSUM_EUR = 0.02;//2%
-    private final double COMMISSION_MORE_THAN_CHECKSUM_EUR = 0.04;//4%
+//    private final int LIMIT_OF_WITHDRAWAL_USD = 2000;
+//    private final int LIMIT_OF_WITHDRAWAL_EUR = 2200;
+//    private final int LIMIT_OF_FUNDING_EUR = 20000;
+//    private final int LIMIT_OF_FUNDING_USD = 10000;
+//    private final double MONTHLY_RATE_USD = 0.00;//0%
+//    private final double MONTHLY_RATE_EUR = 0.01;//1%
+//    private final int CHECKSUM = 1000;
+//    private final double COMMISSION_UP_TO_CHECKSUM_USD = 0.05;//5%
+//    private final double COMMISSION_MORE_THAN_CHECKSUM_USD = 0.07;//7%
+//    private final double COMMISSION_UP_TO_CHECKSUM_EUR = 0.02;//2%
+//    private final double COMMISSION_MORE_THAN_CHECKSUM_EUR = 0.04;//4%
 
     public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                   double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -27,8 +27,8 @@ public class EUBank extends Bank{
     }
 
     @Override
-    int getLimitOfWithdrawal() {
-        return 0;
+    public int getLimitOfWithdrawal() {
+        return Currency.EUR.LIMIT_OF_WITHDRAWAL()[0];
     }
 
     @Override

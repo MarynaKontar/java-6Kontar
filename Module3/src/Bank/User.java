@@ -129,7 +129,7 @@ public class User {
         String formattedBalance = new DecimalFormat(PATTERN).format(balance);
         sb.append("User{name=").append(name);
         sb.append("\n balance=").append(formattedBalance);
-        sb.append("\n companyName='").append(companyName).append("\'");
+        sb.append("\n company name='").append(companyName).append("\'");
         sb.append('}');
         return sb.toString();
     }

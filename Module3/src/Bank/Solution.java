@@ -1,5 +1,7 @@
 package Bank;
 
+import java.util.Arrays;
+
 /**
  * Create User class with the following fields: String name, int balance,
  * int monthsOfEmployment, String companyName, int salary, String currency.
@@ -18,6 +20,6 @@ public class Solution {
         User user1 = new User("Burtsev", 2000.45,
                 500, "linux", 18000, "$");
         user1.withdraw(1550);
-        System.out.println(user1.toString());
+        System.out.println(user1);//user1.toString
     }
 }

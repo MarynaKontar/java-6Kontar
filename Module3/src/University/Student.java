@@ -2,6 +2,8 @@ package University;
 
 import com.sun.xml.internal.bind.v2.TODO;
 
+import java.util.Arrays;
+
 /**
  * Java#6
  * Module 1 Home work 3
@@ -100,6 +102,7 @@ public class Student {
     public String toString() {
         return "Name: " + ((firstName == null)? "" : firstName) + " " +  ((lastName == null)? "" : lastName) +
                 "\nGroup: " + ((group == 0)? "" : group) +
-                "\nCourses taken: " + toStringCoursesTaken(coursesTaken);
+                //"\nCourses taken: " + toStringCoursesTaken(coursesTaken);
+                "\nCourses taken: " + Arrays.deepToString(coursesTaken);
     }
 }

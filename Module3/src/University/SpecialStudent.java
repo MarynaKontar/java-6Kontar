@@ -30,8 +30,8 @@ public class SpecialStudent extends CollegeStudent {
 
     //TODO 1.change SpecialStudent constructor
     public SpecialStudent(long secretKey){
-        this(null,null,0);
-        this.secretKey = secretKey;
+            this(null,null,0);
+            this.secretKey = secretKey;
     }
 
     public long getSecretKey() {
