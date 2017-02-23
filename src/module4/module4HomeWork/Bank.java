@@ -24,6 +24,37 @@ public abstract class Bank {
         this.totalCapital = totalCapital;
     }
 
+
+//
+
+    /**
+     * limit of withdrawal for {USD, EUR}
+     */
+    protected int[] LIMIT_OF_WITHDRAWAL = new int[]{1000, 1200};
+    /**
+     * limit of funding for {USD, EUR}
+     */
+    protected int[] LIMIT_OF_FUNDING = new int[]{Integer.MAX_VALUE, 10000};
+    /**
+     * monthly rate for {USD, EUR} in percent
+     */
+    protected int[] MONTHLY_RATE = new int[]{1, 2};
+    /**
+     * checksum for {USD, EUR}
+     */
+    protected int CHECKSUM = 1000;
+    /**
+     * commission if up to checksum for {USD, EUR} in percent
+     */
+    protected int[] COMMISSION_UP_TO_CHECKSUM = new int[]{5, 6};
+    /**
+     * commission if more than checksum for {USD, EUR} in percent
+     */
+    protected int[] COMMISSION_MORE_THAN_CHECKSUM = new int[]{7, 8};
+
+
+
+
     public long getId() {
         return id;
     }
@@ -80,13 +111,17 @@ public abstract class Bank {
         this.totalCapital = totalCapital;
     }
 
-    abstract int getLimitOfWithdrawal();
+    //abstract int getLimitOfWithdrawal(Currency currency);
+    int getLimitOfWithdrawal() {
+        return LIMIT_OF_WITHDRAWAL[currency.ordinal()];
+    }
 
-    abstract int getLimitOfFunding();
+    int getLimitOfFunding(){
+        return LIMIT_OF_FUNDING[currency.ordinal()];}
 
-    abstract int getMonthlyRate();
+    abstract int getMonthlyRate(Currency currency);
 
-    abstract int getCommission(int summ);
+    abstract int getCommission(Currency currency,int summ);
 
     //TODO в условии не абстрактный
     double moneyPaidMonthlyForSalary(){

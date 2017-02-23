@@ -26,28 +26,25 @@ public class ChinaBank extends Bank {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
-    @Override
-    int getLimitOfWithdrawal() {
-        return 0;
-    }
-
-    @Override
-    int getLimitOfFunding() {
-        return 0;
-    }
-
-    @Override
-    int getMonthlyRate() {
-        return 0;
-    }
-
-    @Override
-    int getCommission(int summ) {
-        return 0;
-    }
-
 //    @Override
-//    double moneyPaidMonthlyForSalary() {
+//    int getLimitOfWithdrawal(Currency currency) {
 //        return 0;
 //    }
+//
+//    @Override
+//    int getLimitOfFunding(Currency currency) {
+//        return 0;
+//    }
+
+    @Override
+    int getMonthlyRate(Currency currency) {
+        return 0;
+    }
+
+    @Override
+    int getCommission(Currency currency, int summ) {
+        return 0;
+    }
+
+
 }

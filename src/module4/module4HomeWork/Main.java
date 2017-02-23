@@ -11,13 +11,13 @@ public class Main {
         /**
          * creates banks
          */
-        EUBank euBank = new EUBank(443456, "BELGIUM", Currency.EUR_EUBank,
+        EUBank euBank = new EUBank(443456, "BELGIUM", Currency.EUR,
                 534, 2000.45, 14, 2147483647);
 
-        USBank usBank = new USBank(555555, "USA", Currency.USD_USBank,
+        USBank usBank = new USBank(555555, "USA", Currency.USD,
                 1283, 1580, 22, 234450967);
 
-        ChinaBank chinaBank = new ChinaBank(90870, "China", Currency.EUR_EUBank,
+        ChinaBank chinaBank = new ChinaBank(90870, "China", Currency.EUR,
                 1000, 1025.06, 11, 6454892433L);
 
         /**
@@ -32,7 +32,7 @@ public class Main {
         User burtsev = new User(123581323, "Burtsev Vladimir", 2050,
                 600, "BMS Soft LLC", 400, usBank);
 
-        User Ponomarenko = new User(123581324, "Andrey Ponomarenko", 3200,
+        User ponomarenko = new User(123581324, "Andrey Ponomarenko", 3200,
                 500, "Levi9 Ukraine", 600, usBank);
 
         User gingembre = new User(123581325, "Gingembre Guillaume", 4500,
@@ -40,5 +40,20 @@ public class Main {
 
         User kontar = new User(123581326, "Kontar Maryna", 3200,
                 800, "SPS Commerce", 700, chinaBank);
+
+//        burtsev.(BankSystemImpl.withdrawOfUser())
+        BankSystemImpl bankSystem= new BankSystemImpl();
+        System.out.println(burtsev.toString());
+        //bankSystem.withdrawOfUser(burtsev, 550, Currency.USD);
+        bankSystem.withdrawOfUser(burtsev, 550);
+        System.out.println(burtsev.toString());
+
+
+
+
+//        byte b = 127;
+//        int i = Integer.MAX_VALUE;
+//        System.out.println(i + "  " + i+2346);//2147483647  21474836472346
+
     }
 }

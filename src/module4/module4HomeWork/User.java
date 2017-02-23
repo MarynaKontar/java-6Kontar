@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 /**
  * Created by User on 14.02.2017.
  */
-public class User implements BankSystem{
+public class User{
 
     private long id;
     private String name;
@@ -26,25 +26,60 @@ public class User implements BankSystem{
         this.bank = bank;
     }
 
-    @Override
-    public void withdrawOfUser(User user, int amount) {
-
+    public long getId() {
+        return id;
     }
 
-    @Override
-    public void fundUser(User user, int amount) {
-        if (amount < bank.getLimitOfFunding())
-            balance += amount;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    @Override
-    public void transferMoney(User fromUser, User toUser, int amount) {
-
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public void paySalary(User user) {
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public int getMonthsOfEmployment() {
+        return monthsOfEmployment;
+    }
+
+    public void setMonthsOfEmployment(int monthsOfEmployment) {
+        this.monthsOfEmployment = monthsOfEmployment;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
     @Override
