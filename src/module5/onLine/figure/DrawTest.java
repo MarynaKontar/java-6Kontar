@@ -16,7 +16,7 @@ public class DrawTest {
     public static void main(String[] args) {
         Figure[] figures = new Figure[2];
         figures[0] = new Parallelogram(1, 1);
-        figures[1] = new Square( 1);
+        figures[1] = new Square( 5);
 
         Object[] figures2 = new Object[2];
         figures2[0] = new Parallelogram(1, 1);

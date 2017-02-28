@@ -11,7 +11,7 @@ public class Square extends Parallelogram {
 
 
     @Override
-    void draw(double sq) {
+    public void draw(double sq) {
         System.out.println("Call draw from square!");
     }
 
