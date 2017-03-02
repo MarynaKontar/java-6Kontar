@@ -1,4 +1,4 @@
-package module5.homeWork5.homeWork5;
+package module5.homeWork5.neVernoe;
 
 /**
  * Java#6

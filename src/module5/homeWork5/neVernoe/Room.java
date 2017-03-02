@@ -1,4 +1,4 @@
-package module5.homeWork5.homeWork5;
+package module5.homeWork5.neVernoe;
 
 import java.time.LocalDate;
 
@@ -108,40 +108,11 @@ public class Room {
         result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
         return result;
     }
-
-
-
-    public boolean equalsForAllFields(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Room room = (Room) o;
-
-        if (id != room.id) return false;
-        if (price != room.price) return false;
-        if (persons != room.persons) return false;
-        if (dateAvailableFrom != null ? !dateAvailableFrom.equals(room.dateAvailableFrom) : room.dateAvailableFrom != null)
-            return false;
-        if (hotelName != null ? !hotelName.equals(room.hotelName) : room.hotelName != null) return false;
-        return cityName != null ? cityName.equals(room.cityName) : room.cityName == null;
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 //Проверьте объект на null, а также проверьте, чтобы объекты были одного типа.
 // Не делайте проверку с помощью instanceof так как такая проверка будет
 // возвращать true для подклассов и будет работать правильно только в случае если
 // ваш класс объявлен как immutable.
 // Вместо этого можно использовать getClass();
-//Блох
 

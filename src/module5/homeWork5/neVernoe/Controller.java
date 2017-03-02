@@ -1,4 +1,4 @@
-package module5.homeWork5.homeWork5;
+package module5.homeWork5.neVernoe;
 
 /**
  * Java#6
@@ -17,8 +17,8 @@ package module5.homeWork5.homeWork5;
  */
 public class Controller {
 
-    private static final int NUMBER_OF_APIS = 3;
-    public static API[] apis = new API[NUMBER_OF_APIS];
+    public static API[] apis = new API[3];
+//    public static API[] daos = new API[]{new BookingComAPI(),new GoogleAPI(), new TripAdvisorAPI()};
 
     public Controller() {
         apis[0] = new BookingComAPI();
@@ -26,7 +26,7 @@ public class Controller {
         apis[2] = new TripAdvisorAPI();
     }
 
-    public Room[] requestRooms(int price, int persons, String city, String hotel) {
+    Room[] requestRooms(int price, int persons, String city, String hotel) {
 
         Room[] roomArray = new Room[15];
         int count = 0;
@@ -40,10 +40,7 @@ public class Controller {
         return roomArray;
     }
 
-    //TODO
-
-    Room[] check(DAO dao1, DAO dao2) {
-
+    Room[] check(API api1, API api2) {
 
         return new Room[0];
     }
