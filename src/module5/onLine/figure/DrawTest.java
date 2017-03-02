@@ -22,9 +22,9 @@ public class DrawTest {
         figures2[0] = new Parallelogram(1, 1);
         figures2[1] = new Square( 5);
 
-        for (Figure figure : figures) {
-            figure.draw(figure.square());
-        }
+//        for (Figure figure : figures) {
+//            figure.draw(figure.square());
+//        }
 
         System.out.println(new Square(10));
 

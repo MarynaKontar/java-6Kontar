@@ -10,18 +10,18 @@ public class Square extends Parallelogram {
 
 
 
-    @Override
-    void draw(double sq) {
-        System.out.println("Call draw from square!");
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("This is square: ");
-        sb.append(width());
-        return sb.toString();
-        //return "This is sq:" + width();
-    }
+//    @Override
+//    void draw(double sq) {
+//        System.out.println("Call draw from square!");
+//    }
+//
+//    @Override
+//    public String toString() {
+//        final StringBuilder sb = new StringBuilder("This is square: ");
+//        sb.append(width());
+//        return sb.toString();
+//        //return "This is sq:" + width();
+//    }
 
     public double perimeter(){
         return 4 * width();

@@ -12,5 +12,5 @@ package module4.module4HomeWork.module4HomeWorkFirstVariant;
  * @author Kontar Maryna
  */
 public enum Currency {
-    USD, EUR, YUAN;
+     USD, EUR, YUAN;
 }
