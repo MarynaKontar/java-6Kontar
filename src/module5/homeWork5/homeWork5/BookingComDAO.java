@@ -27,47 +27,55 @@ public class BookingComDAO implements DAO {
 
         int count = RoomsInDBCount(rooms);
         rooms[count] = room;
-        return room;
+        System.out.println("Save: " + room);
+        return room;  //TODO 1. почему функция save не void? Или может это надо  для того, чтобы возвращать null, если закончился массив БД
+        //(мы же не должны  были в задании пока расширять массив БД?)
     }
 
     @Override
     public boolean delete(Room room) {
 
         for (int j = 0; j < rooms.length; j++) {
-            //Room roomInDb = rooms[j];
-
-            if (rooms[j].equalsForAllFields(room)) {
+            if (rooms[j] != null && rooms[j].equalsForAllFields(room)) {
                 System.arraycopy(rooms, j + 1, rooms, j, rooms.length - j - 1);
                 rooms[rooms.length - 1] = null;
+                System.out.println("Delete: " + room);
                 return true;
             }
         }
+        System.out.println("Delete: there isn't room in DB");
         return false;
     }
 
     @Override
     public Room update(Room room) {
+
         for (int j = 0; j < rooms.length; j++) {
-            if (rooms[j].equals(room)) {
+            if (rooms[j].getId() == room.getId()) {  //rooms[j].equals(room
                 rooms[j] = room;
+                System.out.println("Update: " + room);
                 return room;
             }
         }
-        return null;
+        System.out.println("Update: there isn't room in DB");
+        return null;  //TODO 2.правильно ли, что, если нет комнаты с данным id, то надо вернуть пустую комнату?
     }
 
     @Override
     public Room findById(long id) {
 
         for (int j = 0; j < rooms.length; j++) {
-            if (id == rooms[j].getId())
+            if (id == rooms[j].getId()) {
+                System.out.println("find by id: " + id + " " + rooms[j]);
                 return rooms[j];
+            }
         }
+        System.out.println("Find by id: there isn't room in DB");
         return null;
     }
 
     @Override
-    public Room[] createDB() {
+    public Room[] getAll() {
         return rooms;
     }
 

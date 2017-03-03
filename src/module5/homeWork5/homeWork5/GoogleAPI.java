@@ -8,12 +8,11 @@ import java.util.Arrays;
 public class GoogleAPI implements API {
 
     private DAO dao = new GoogleDAO();
-    public Room[] rooms = dao.createDB();
-    private Room[] lookingForRoomsArray = new Room[0];
+    public Room[] rooms = dao.getAll();
 
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-
+        Room[] lookingForRoomsArray = new Room[0];
         Room lookingForRoom = new Room(0, price, persons, null, hotel, city);
 
         for (int i = 0; i < rooms.length; i++) {
