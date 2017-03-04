@@ -22,12 +22,12 @@ public class Parallelogram extends Figure {
     }
 
     @Override
-    double square() {
+   public double square() {
         return a * b;
     }
 
     @Override
-    void draw(double res) {
+    public void draw(double res) {
         System.out.println("Draw square from parallelogram");
     }
 

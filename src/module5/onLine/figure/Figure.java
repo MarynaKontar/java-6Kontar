@@ -25,13 +25,13 @@ public abstract class Figure {
         draw(res);
     }
 
-    //   public void wrieToNetWork(){  //этого метода не должно быть, п.ч. один класс должен нести отвтственноть за один функционал
+    //   public void writeToNetWork(){  //этого метода не должно быть, п.ч. один класс должен нести отвтственноть за один функционал
 //
 //   }
 
     //plain figure
-    abstract double square();
+    public abstract double square();
 
-    abstract void draw(double res);
+    public abstract void draw(double sq);
 
 }

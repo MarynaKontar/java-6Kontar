@@ -25,7 +25,7 @@ public class User {
 
     private long id;
     private String name;
-    private double balance;
+    private double balance;//balance = 0.0;
     private int monthsOfEmployment;
     private String companyName;
     private int salary;
