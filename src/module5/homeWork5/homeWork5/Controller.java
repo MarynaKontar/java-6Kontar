@@ -49,13 +49,15 @@ public class Controller {
         Room[] rooms1 = dao1.getAll();
         Room[] rooms2 = dao2.getAll();
         //TODO 8. Лучше здесь один раз вызвать метод getAll(), чем в цикле много раз? Я права или есть другие подводные камни (не очень читабельно)?
+        //Т.е. по сути вопрос в том как и когда выделяется память под те или иные объекты и  количество лишних объектов,
+        // которые не собрал сборщик мусора
 
         int length1 = rooms1.length;
         int length2 = rooms2.length;
         int k = -1;
         for (int i = 0; i < length1; i++) {
             for (int j = 0; j < length2; j++) {
-                if (rooms1[i] != null && rooms1[i].equals(rooms2[j]) && j!=k) {
+                if (rooms1[i] != null && rooms1[i].equals(rooms2[j]) && j != k) {
                     k = j;
                     rooms = addElementToArray(rooms, rooms1[i]);
                     rooms = addElementToArray(rooms, rooms2[j]);
