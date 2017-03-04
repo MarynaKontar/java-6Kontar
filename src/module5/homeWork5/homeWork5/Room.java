@@ -109,7 +109,17 @@ public class Room {
         return result;
     }
 
-
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", price=" + price +
+                ", persons=" + persons +
+                ", available from=" + dateAvailableFrom +
+                ", hotel='" + hotelName + '\'' +
+                ", city='" + cityName + '\'' +
+                '}';
+    }
 
     public boolean equalsForAllFields(Object o) {
         if (this == o) return true;

@@ -21,9 +21,5 @@ public interface DAO {
 
     Room findById(long id);
 
-    Room[] createDB();
-
-//TODO почему функция save не void? Или надо может это надо  для того, чтобы возвращать null, если закончился массив БД
-    //(мы же не должны  были в задании пока расширять массив БД?)
-
+    Room[] getAll();
 }
