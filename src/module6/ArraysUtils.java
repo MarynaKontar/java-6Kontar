@@ -1,5 +1,7 @@
 package module6;
 
+import java.util.stream.IntStream;
+
 /**
  * Created by User on 03.03.2017.
  * Make sure nobody can inherit your ArraysUtils.
@@ -15,32 +17,43 @@ public class ArraysUtils {
 //    secondLargest(int array[]){}
 
 
-
     /**
      * return sum of integer array elements
      * This method does not work correctly when sum is outside the range - 2147483647 :  2147483647
+     *
      * @param array
      * @return
      */
-   int sum(int[] array) {
-        int summ = 0;
-        for (int i = 0; i < array.length; i++) {
-            summ += array[i];
-        }
-        return summ;
-    }
+//   static int sum(int[] array) {
+//        int summ = 0;
+//        for (int i = 0; i < array.length; i++) {
+//            summ += array[i];
+//        }
+//        return summ;
+//    }
 
-    int sum(int[] array, int indexToBegin){
+    static private int k;
+    static int sum(int[] array) {
+        int indexToBegin = array.length - k - 1;
 
-       if(indexToBegin == 0)
+        if (indexToBegin == 0)
             return array[indexToBegin];
-        return array[indexToBegin] + sum(array, indexToBegin - 1);
+        else {
+            k = k + 1;
+            return array[indexToBegin] + sum(array);
+        }
     }
+// TODO 1. Я написала метод sum в разніх вариантах: 1.просто через цикл, 2.с помощью рекурсии
+// и в Main использовала третий вариант 3. IntStream.of(rndIntArray).parallel().sum().
+    //метод sum с рекурсией при массиве длиной 100000 выдал ошибку java.lang.StackOverflowError
+//при массиве длиной 100000000 - все методы выдали Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+    //
 
 
 
     /**
      * return minimum element of integer array
+     *
      * @param array
      * @return
      */
@@ -55,6 +68,7 @@ public class ArraysUtils {
 
     /**
      * return maximum element of integer array
+     *
      * @param array
      * @return
      */
@@ -70,6 +84,7 @@ public class ArraysUtils {
     /**
      * method return max positive element of int array
      * if there is no positive elements return -1
+     *
      * @param array
      * @return
      */
