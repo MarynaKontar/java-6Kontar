@@ -22,7 +22,7 @@ public class ArraysUtils {
      * @param array
      * @return
      */
-   int sum(int[] array) {
+  static int sum(int[] array) {
         int summ = 0;
         for (int i = 0; i < array.length; i++) {
             summ += array[i];
@@ -30,12 +30,12 @@ public class ArraysUtils {
         return summ;
     }
 
-    int sum(int[] array, int indexToBegin){
-
-       if(indexToBegin == 0)
-            return array[indexToBegin];
-        return array[indexToBegin] + sum(array, indexToBegin - 1);
-    }
+//    int sum(int[] array, int indexToBegin){
+//
+//       if(indexToBegin == 0)
+//            return array[indexToBegin];
+//        return array[indexToBegin] + sum(array, indexToBegin - 1);
+//    }
 
 
 
