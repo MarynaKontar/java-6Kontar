@@ -1,4 +1,4 @@
-package module6;
+package module6.task1;
 
 import java.util.stream.IntStream;
 
@@ -12,6 +12,7 @@ import java.util.stream.IntStream;
  *
  * @author Kontar Maryna
  */
+
 public final class ArraysUtils {
 
     private ArraysUtils() {
@@ -54,7 +55,7 @@ public final class ArraysUtils {
         }
     }
     // TODO 2. Я написала метод sum в разных вариантах: 1.просто через цикл, 2.с помощью рекурсии
-    // и в Main использовала третий вариант 3.IntStream.of(integerArray).parallel().sum().
+    // и в UserMain использовала третий вариант 3.IntStream.of(integerArray).parallel().sum().
     //метод sum с рекурсией при массиве длиной 100000 выдал ошибку java.lang.StackOverflowError
     //при массиве длиной 100000000 - все методы выдали Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
     //где можно об этом(я так понимаю - куча и стек) почитать не сильно углубляясь в подробности,

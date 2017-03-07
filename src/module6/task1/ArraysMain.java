@@ -1,9 +1,6 @@
-package module6;
+package module6.task1;
 
-import com.sun.deploy.util.ArrayUtil;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 /**
  * Java#6
@@ -13,6 +10,7 @@ import java.util.stream.IntStream;
  *
  * @author Kontar Maryna
  */
+
 public class ArraysMain{
     public static void main(String[] args) {
 
