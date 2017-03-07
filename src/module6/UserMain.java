@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class UserMain {
     public static void main(String[] args) {
 
-        User[] users = new User[8];
+        User[] users = new User[15];
         users[0] = new User(123581321, "Tanya", "Kysla", 500, 20000);
         users[1] = new User(123581320, "Pavel", "Rosovskiy", 400, 15000);
         users[2] = new User(123581323, "Vladimir", "Burtsev", 600, 2050);
@@ -22,13 +22,13 @@ public class UserMain {
         users[5] = new User(123581325, "Gingembre", "Guillaume", 900, 4500);
         users[6] = new User(123581326, "Maryna", "Kontar", 800, 3200);
         users[7] = new User(123581327, "Tanya", "Kysla", 500, 20000);
-//        users[8] = new User(123581322, "Pavel", "Rosovskiy", 400, 15000);
-//        users[9] = new User(123581328, "Vladimir", "Burtsev", 600, 2050);
-//        users[10] = new User(123581329, "Andrey", "Ponomarenko", 500, 3200);
-//        users[11] = null;
-//        users[12] = null;
-//        users[13] = new User(123581330, "Tanya", "Kysla", 500, 20000);
-//        users[14] = null;
+        users[8] = new User(123581322, "Pavel", "Rosovskiy", 400, 15000);
+        users[9] = new User(123581328, "Vladimir", "Burtsev", 600, 2050);
+        users[10] = new User(123581329, "Andrey", "Ponomarenko", 500, 3200);
+        users[11] = null;
+        users[12] = null;
+        users[13] = new User(123581330, "Tanya", "Kysla", 500, 20000);
+        users[14] = null;
 
         System.out.println("Delete empty users");
         print(UserUtils.deleteEmptyUsers(users));
