@@ -37,7 +37,7 @@ public class BankSystemImpl implements BankSystem {
      * @param user
      * @param amount
      */
-    @Override
+   // @Override
     public void withdrawOfUser(User user, int amount) {
         setIfWithdraw(0);               /* default withdrawal is not satisfied */
         int limitOfWithdrawal = user.getBank().getLimitOfWithdrawal();
@@ -60,7 +60,7 @@ public class BankSystemImpl implements BankSystem {
      * @param user
      * @param amount
      */
-    @Override
+    //@Override
     public void fundUser(User user, int amount) {
 
         int limitOfFunding = user.getBank().getLimitOfFunding();
@@ -80,7 +80,7 @@ public class BankSystemImpl implements BankSystem {
      * @param toUser
      * @param amount
      */
-    @Override
+    //@Override
     public void transferMoney(User fromUser, User toUser, int amount) {
 
         int limitOfFunding = toUser.getBank().getLimitOfFunding();
@@ -103,7 +103,7 @@ public class BankSystemImpl implements BankSystem {
      *
      * @param user
      */
-    @Override
+    //@Override
     public void paySalary(User user) {
 
         user.setBalance(user.getBalance() + user.getSalary());
