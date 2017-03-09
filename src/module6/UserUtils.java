@@ -30,19 +30,19 @@ public final class UserUtils {              //nobody can inherit UserUtils
      * @param users
      * @return
      */
-    public static User[] uniqueUsers(User[] users) {
+    public static User[] uniqueUsers(User[] users) {  //НЕ ДОДЕЛАЛА
         User[] unique = new User[users.length];
-        int k = 0;
-        boolean ifUnique = false;
-        for (int i = 0; i < users.length; i++) {
-            for (int j = i + 1; j < users.length; j++) {
-                if (users[i] == null || !(users[i].equals(users[j]))) { //если нулл или одинаковые
-                    ifUnique = true;
-                }
-            }
-            if (ifUnique){k++;}
-            unique[k] = users[i];
-        }
+//        int k = 0;
+//        boolean ifUnique = false;
+//        for (int i = 0; i < users.length; i++) {
+//            for (int j = i + 1; j < users.length; j++) {
+//                if (users[i] == null || !(users[i].equals(users[j]))) { //если нулл или одинаковые
+//                    ifUnique = true;
+//                }
+//            }
+//            if (ifUnique){k++;}
+//            unique[k] = users[i];
+//        }
 
 
         //TODO 5.Если бы массив был массивом чисел, то его можно было бы отсортировать квиксортом и одним for
