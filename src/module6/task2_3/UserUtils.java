@@ -1,8 +1,5 @@
-package module6;
+package module6.task2_3;
 
-import com.sun.deploy.util.ArrayUtil;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**

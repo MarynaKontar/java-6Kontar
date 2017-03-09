@@ -1,6 +1,4 @@
-package module6;
-
-import java.util.Date;
+package module6.task2_3;
 
 /**
  * Java#6
