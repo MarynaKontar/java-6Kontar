@@ -2,6 +2,7 @@ package module6;
 
 import com.sun.deploy.util.ArrayUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -31,24 +32,23 @@ public final class UserUtils {              //nobody can inherit UserUtils
      */
     public static User[] uniqueUsers(User[] users) {
         User[] unique = new User[users.length];
-//        int k = 1;
-//        unique[0] = users[0];
-//        for (int i = 1; i < users.length; i++) {
-//            for (int j = i + 1; j < users.length; j++) {
-//                if (users[i] != null || !(users[i].equals(unique[j]))) {
-//                    unique[k] = users[i];
-//                    k++;
-//                    //НЕ ДОДЕЛАЛА
-//                }
-//            }
-//
-//        }
+        int k = 0;
+        boolean ifUnique = false;
+        for (int i = 0; i < users.length; i++) {
+            for (int j = i + 1; j < users.length; j++) {
+                if (users[i] == null || !(users[i].equals(users[j]))) { //если нулл или одинаковые
+                    ifUnique = true;
+                }
+            }
+            if (ifUnique){k++;}
+            unique[k] = users[i];
+        }
 
 
         //TODO 5.Если бы массив был массивом чисел, то его можно было бы отсортировать квиксортом и одним for
         //проверять на одинаковость соседнии элементы. А как в этом случае сделать поиск одинаковых (уникальных) элементов быстрее?
         //Comparable?
-//        unique = Arrays.copyOf(unique, k);
+        //unique = Arrays.copyOf(unique, k);
         return unique;
     }
 
