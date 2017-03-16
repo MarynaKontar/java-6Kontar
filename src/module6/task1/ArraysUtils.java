@@ -1,5 +1,10 @@
 package module6.task1;
 
+import com.sun.deploy.util.ArrayUtil;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -26,6 +31,7 @@ public final class ArraysUtils {
      * @return
      */
 //   static int sum(int[] array) {
+//        if(array == null) return -1;
 //        int summ = 0;
 //        for (int i = 0; i < array.length; i++) {
 //            summ += array[i];
@@ -44,7 +50,7 @@ public final class ArraysUtils {
      * @return
      */
     public static int sum(int[] array) {
-       //if(array == null) return 0;    //не знаю что возвращать в случае пустого массива
+       //if(array == null) return -1;    //не знаю что возвращать в случае пустого массива -> возвращать -1
         int indexToBegin = array.length - k - 1;
 
         if (indexToBegin == 0)
@@ -208,6 +214,8 @@ public final class ArraysUtils {
     // наоборот по отношению к входящему массиву? (как я сделала)
     // или в самом массиве элементы наоборот переставить?
     // (тогда в методе надо убрать первые две строчки и переименовать reverseArray на array)
+    //TODO 3. Более правильно создать новый массив.
+    // В случае перестановки внутри того же массива нужно произвести ОЧЕНЬ много действий.
 
 
 

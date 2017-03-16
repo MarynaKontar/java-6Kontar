@@ -20,13 +20,19 @@ public class Zoo {
 
         Animal[] animalsArray = new Animal[2];
 
-        animalsArray[0] = new Monkey("Masha");
+        Monkey monkeyMasha = new Monkey("Masha");
+        animalsArray[0] = monkeyMasha;
+        monkeyMasha.setFoodCount ( 10 );
+        System.out.println (monkeyMasha.getName () + " has " + monkeyMasha.getFoodCount () +  " " + monkeyMasha.getFoodName () );
+
         animalsArray[1] = new Elephant();
 
         animalsArray = addElementToArray(animalsArray, new Own());
         animalsArray = addElementToArray(animalsArray, new Parrot());
 
         Monkey monkeyNina = new Monkey("Nina");
+        monkeyNina.setFoodCount ( 5 );
+        System.out.println ("Nina has " + monkeyNina.getFoodCount () + monkeyNina.getFoodName () );
 
         animalsArray = addElementToArray(animalsArray, monkeyNina);
 
@@ -49,6 +55,7 @@ public class Zoo {
             animal.feed();
         }
     }
+
 
 
 }

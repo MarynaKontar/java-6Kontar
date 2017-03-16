@@ -20,9 +20,10 @@ public class CitizenFactory {
 
     private static int citizenAmount; //просто для себя создавала
 
-//    private CitizenFactory() { } //TODO 1. Надо или нет делать доступ к методу-фабрике(createCitizen(...)) через єкземпляр класса
+   private CitizenFactory() { } //TODO 1. Надо или нет делать доступ к методу-фабрике(createCitizen(...)) через єкземпляр класса
 // (конструктор сделать public или не переопределять пустой конструктор) или делать доступ к методу через сам класс (CitizenFactory.createCitizen(...))
 //  Какой из вариантов к каким нежелательным последствиям может привести?
+    //Ответ: Сделать приватный констуктор к фабрике.
 
 
     public static int getCitizenAmount() {
