@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.Comparator.reverseOrder;
 
@@ -46,7 +47,8 @@ public class MainList {
         Order order10 = new Order ( 100, Currency.UAH, "Pork meet", "Silpo", user10);
 
 
-        orders.addAll( Arrays.asList ( order1, order2, order3, order4, order5, order6,  order7, order8, order9, order10));
+       orders.addAll( Arrays.asList ( order1, order2, order3, order4, order5, order6,  order7, order8, order9, order10));
+
         //Collections.addAll ( orders, order1, order2, order3, order4, order5, order6,  order7, order8, order9, order10); //before java 8
         print ("Collection of orders: ",orders);
 
@@ -61,6 +63,33 @@ public class MainList {
 
         Collections.sort(orders, new Order.OrderItemNameAndShopIdentificatorAndUserCityComparator());
         print ("Order item name and shop identificator and user city order collection: ",orders);
+
+        /**
+         * Удаление дубликатов
+         */
+        long start;
+        start = System.currentTimeMillis();
+        for ( int i = 0; i < 100000; i++ ) {
+            orders.addAll ( Arrays.asList ( order1, order2, order3, order4, order5, order6,  order7, order8, order9, order10) );
+            orders.add(new Order ( 100, Currency.UAH, "Pork meet", "Silpo", user10 ));
+        }
+        System.out.println("ArrayList add : " + ( System.currentTimeMillis() - start ) + " ms");
+        System.out.println (orders.size () );
+
+        start = System.currentTimeMillis();
+        Object[] st = orders.toArray();
+        for (Object s : st) {
+            if (orders.indexOf(s) != orders.lastIndexOf(s)) {
+                orders.remove(orders.lastIndexOf(s));
+            }
+        }
+        System.out.println("ArrayList remove : " + ( System.currentTimeMillis() - start ) + " ms");
+        System.out.println (orders.size () );
+
+        start = System.currentTimeMillis();
+        orders = orders.stream().distinct().collect( Collectors.toList());
+        System.out.println("ArrayList remove : " + ( System.currentTimeMillis() - start ) + " ms");
+        System.out.println (orders.size () );
     }
 
 

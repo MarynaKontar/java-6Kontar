@@ -92,6 +92,32 @@ public class Order implements Comparable <Order> {
     }
 
     @Override
+    public boolean equals ( Object o ) {
+        if (this == o) return true;
+        if (o == null || getClass ( ) != o.getClass ( )) return false;
+
+        Order order = (Order) o;
+
+        if (getPrice ( ) != order.getPrice ( )) return false;
+        if (getCurrency ( ) != order.getCurrency ( )) return false;
+        if (getItemName ( ) != null ? !getItemName ( ).equals ( order.getItemName ( ) ) : order.getItemName ( ) != null)
+            return false;
+        if (getShopIdentificator ( ) != null ? !getShopIdentificator ( ).equals ( order.getShopIdentificator ( ) ) : order.getShopIdentificator ( ) != null)
+            return false;
+        return getUser ( ) != null ? getUser ( ).equals ( order.getUser ( ) ) : order.getUser ( ) == null;
+    }
+
+    @Override
+    public int hashCode () {
+        int result = getPrice ( );
+        result = 31 * result + (getCurrency ( ) != null ? getCurrency ( ).hashCode ( ) : 0);
+        result = 31 * result + (getItemName ( ) != null ? getItemName ( ).hashCode ( ) : 0);
+        result = 31 * result + (getShopIdentificator ( ) != null ? getShopIdentificator ( ).hashCode ( ) : 0);
+        result = 31 * result + (getUser ( ) != null ? getUser ( ).hashCode ( ) : 0);
+        return result;
+    }
+
+    @Override
     public String toString () {
         return "Order{" +
                 "id=" + id +
