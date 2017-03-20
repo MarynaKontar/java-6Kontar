@@ -20,7 +20,7 @@ public class TestRemoveDublicates {
         User user10 = new User ( "Vitalii", "Proskura", "Rivne", 2050 );
 
 
-        List <Order> orders = new ArrayList <> ( 10 );
+        List <Order> orders = new ArrayList <> ( 120 );
 
 
         Order order1 = new Order ( 50, Currency.USD, "Shoes blue model 345 s.41", "Miraton", user1 );
@@ -38,12 +38,12 @@ public class TestRemoveDublicates {
        //                        ADD ELEMENTS TO LIST
         orders.addAll ( Arrays.asList ( order1, order2, order3, order4, order5, order6, order7, order8, order9, order10 ) );
         long start;
-        final int LIST_SIZE = 100000;
+        final int LIST_SIZE = 2;
 
         start = System.currentTimeMillis ( );
         for ( int i = 0; i < LIST_SIZE; i++ ) {
             orders.addAll ( Arrays.asList ( order1, order2, order3, order4, order5, order6, order7, order8, order9, order10 ) );
-            orders.add ( new Order ( 100, Currency.UAH, "Pork meet", "Silpo", user10 ) );
+            //orders.add ( new Order ( 100, Currency.UAH, "Pork meet", "Silpo", user10 ) );
         }
         System.out.println ( "TIME OF ADDING ELEMENTS TO THE ArrayList : " + (System.currentTimeMillis ( ) - start) + " ms" );
         //165 ms       for 1100010 size
@@ -61,6 +61,7 @@ public class TestRemoveDublicates {
 //        }
 //        System.out.println ( "ArrayList delete duplicates(remove from array) : " + (System.currentTimeMillis ( ) - start) + " ms" );
 //        System.out.println ( orders.size ( ) );
+//        System.out.println (orders );
 //        //86681 ms      for 1100010 size
 
 
@@ -82,12 +83,12 @@ public class TestRemoveDublicates {
 //        //73-148 ms      for 1100010 size
 
 
-//        //        4. HashSet1
-//        start = System.currentTimeMillis();
-//        orders = new ArrayList<>(new HashSet<> (orders));
-//        System.out.println("ArrayList delete duplicates(HashSet) : " + ( System.currentTimeMillis() - start ) + " ms");
-//        System.out.println ( orders );
-//        //~100-175 ms      for 1100010 size
+        //        4. HashSet1
+        start = System.currentTimeMillis();
+        orders = new ArrayList<>(new HashSet<> (orders));
+        System.out.println("ArrayList delete duplicates(HashSet) : " + ( System.currentTimeMillis() - start ) + " ms");
+        System.out.println ( orders );
+        //~100-175 ms      for 1100010 size
 
 
 //        //        5. HashSet2
@@ -102,20 +103,20 @@ public class TestRemoveDublicates {
 //        System.out.println ( ordersSetDublicates.size ( ) );//
 
 
-        //        6. Iterator + contains
-        List <Order> ordersListUnique = new ArrayList <> ( );
-        start = System.currentTimeMillis ( );
-        Iterator <Order> orderIterator = orders.iterator ( );
-        Order next;
-        System.out.println ( orders.size ( ) );
-        while (orderIterator.hasNext()) {
-            next = orderIterator.next();
-            if (!ordersListUnique.contains(next))
-                ordersListUnique.add(next);
-        }
-        System.out.println ( "ArrayList delete duplicates(Iterator + contains) : " + (System.currentTimeMillis ( ) - start) + " ms" );
-        // ~ 38-69 ms    for 1100010 size
-        System.out.println (ordersListUnique);
+//        //        6. Iterator + contains
+//        List <Order> ordersListUnique = new ArrayList <> ( );
+//        start = System.currentTimeMillis ( );
+//        Iterator <Order> orderIterator = orders.iterator ( );
+//        Order next;
+//        System.out.println ( orders.size ( ) );
+//        while (orderIterator.hasNext()) {
+//            next = orderIterator.next();
+//            if (!ordersListUnique.contains(next))
+//                ordersListUnique.add(next);
+//        }
+//        System.out.println ( "ArrayList delete duplicates(Iterator + contains) : " + (System.currentTimeMillis ( ) - start) + " ms" );
+//        // ~ 38-69 ms    for 1100010 size
+//        System.out.println (ordersListUnique);
 
 
 
@@ -129,20 +130,20 @@ public class TestRemoveDublicates {
 //                + (System.currentTimeMillis ( ) - start) + " ms" );
 //        //150-336 ms    for 1100010 size
 //        System.out.println ( orders );
- 
+
     }
 
 
-    public static Set<Order> findDuplicates(List<Order> list) {
-        Set<Order> items = new HashSet<>();
-        Set<Order> duplicates = new HashSet<>();
-        for (Order item : list) {
-            if (items.contains(item)) {
-                duplicates.add(item);
-        } else {
-            items.add(item);
-        }
-        } return duplicates; }
+//    public static Set<Order> findDuplicates(List<Order> list) {
+//        Set<Order> items = new HashSet<>();
+//        Set<Order> duplicates = new HashSet<>();
+//        for (Order item : list) {
+//            if (items.contains(item)) {
+//                duplicates.add(item);
+//        } else {
+//            items.add(item);
+//        }
+//        } return duplicates; }
 
 
 
