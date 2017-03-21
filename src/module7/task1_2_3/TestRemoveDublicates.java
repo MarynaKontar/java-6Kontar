@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by User on 16.03.2017.
+ * НЕ НАДО ПРОВЕРЯТЬ. ЭТОГО НЕТ В ЗАДАНИИ
  */
 public class TestRemoveDublicates {
     public static void main ( String[] args ) {
