@@ -29,7 +29,7 @@ public class ArrayListVsLinkedList {
 
         long[] integerArrayList1000 = new long[4];
         integerArrayList1000 = timeExecutionInteger ( integerArrayList, NUMBER_OF_ELEMENTS1000 );
-        System.out.println (Arrays.deepToString ( integerArrayList1000 ));
+        System.out.println (Arrays.deepToString ( integerArrayList1000 ));!!!!!!!!!Ошибка
         long[] integerLinkedList1000 = timeExecutionInteger ( integerLinkedList, NUMBER_OF_ELEMENTS1000 );
         System.out.println (integerLinkedList1000);
         long[] integerArrayList10000 = timeExecutionInteger ( integerArrayList, NUMBER_OF_ELEMENTS10000 );
