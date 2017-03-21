@@ -6,7 +6,7 @@ package module7.task1_2_3;
  *
  * @author Kontar Maryna
  */
-public class User {
+public class User implements Comparable<User>{
 
     private static long counter;
     private final long id = counter++;
@@ -58,6 +58,11 @@ public class User {
         this.balance = balance;
     }
 
+    /**
+     * users are equal when equals all Users fields except id
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals ( Object o ) {
         if (this == o) return true;
@@ -80,5 +85,26 @@ public class User {
         result = 31 * result + (getCity ( ) != null ? getCity ( ).hashCode ( ) : 0);
         result = 31 * result + getBalance ( );
         return result;
+    }
+
+    /**
+     * Importance's order of the fields is: balance, lastName, firstName, city
+     * (does not consider id)
+     * (In general, it is specified by the product owner)
+     * @param o
+     * @return
+     */
+    @Override
+    public int compareTo ( User o ) {
+        int balanceComparision = ((Integer) getBalance ()).compareTo ( o.getBalance () );
+        if (balanceComparision != 0) return balanceComparision;
+
+        int lastNameComparision = getLastName ().compareTo ( o.getLastName () );
+        if (lastNameComparision != 0 ) return lastNameComparision;
+
+        int firstNameComparision = getFirstName ().compareTo ( o.getFirstName () );
+        if (firstNameComparision != 0 ) return firstNameComparision;
+
+        return getCity ().compareTo ( o.getCity () );
     }
 }

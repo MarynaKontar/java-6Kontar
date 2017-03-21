@@ -7,9 +7,6 @@ package module7.task1_2_3;
  * @author Kontar Maryna
  */
 
-import java.math.BigDecimal;
-import java.util.Comparator;
-
 public class Order implements Comparable <Order> {
 
     private static long counter;
@@ -72,26 +69,46 @@ public class Order implements Comparable <Order> {
         this.user = user;
     }
 
-
     /**
-     * compare by price
+     * Importance's order of the fields is: price, itemName, shopIdentificator, user, currency
+     * (does not consider id)
+     * (In general, it is specified by the product owner)
      * @param o
      * @return
      */
     @Override
-    public int compareTo ( Order o ) {return ((Integer) price).compareTo ( o.price );}
-        //TODO 1. price - примитив int, а compareTo работает только с объектами, поэтому надо делать autoboxing (Integer) price)?
-        //TODO 2.Если мы хотим сортировать объекты классов, которые создаем сами (в дз - это объекты класса Order), то должны
-        // имплементировать в этом классе интерфейс Comparable (без этого Collections.sort не доступно) и, соответственно,
-        // переопределить метод compareTo для объектов нашего класса таким образом, как мы предпочитаем потом сортировать объекты.
-        // А если хотим один раз по одному сортировать, другой - по другому, то создаем класс ((не в Order, а отдельно, п.ч.
-        // если мы будем эти методы внутри order писать, то это нарушения принципа Single Responsibility)),
-        // который имплементирует интерфейс Comparator (переопределяем метод compare).
-        // Т.е. сколько видов сортировок (не natural или reverseOrder) нам нужно
-        // СТОЛЬКО И ДОПОЛНИТЕЛЬНЫХ КЛАССОВ,ИМПЛЕМЕНТИРУЮЩИХ ИНТЕРФЕЙС КОМПАРАТОР надо создавать? Не обязательно, только,
-        // если такая сортировка будет использоваться еще. А если один раз - то анонимный класс
+        public int compareTo ( Order o ) {
+        int priceComparision = ((Integer) (getPrice ( ))).compareTo ( o.getPrice ( ) );
+        if (priceComparision != 0) return priceComparision;
 
+        int itemNameComparision = getItemName ().compareTo ( o.getItemName () );
+        if(itemNameComparision != 0) return itemNameComparision;
 
+        int shopIdentificatorComparision = getShopIdentificator ().compareTo ( o.getShopIdentificator () );
+        if(shopIdentificatorComparision != 0) return shopIdentificatorComparision;
+
+        int userComparision = getUser ().compareTo ( o.getUser () );
+        if (userComparision != 0) return userComparision;
+
+        return getCurrency ().compareTo ( o.getCurrency () );
+
+        }
+    //TODO 1. price - примитив int, а compareTo работает только с объектами, поэтому надо делать autoboxing (Integer) price)?
+    //TODO 2.Если мы хотим сортировать объекты классов, которые создаем сами (в дз - это объекты класса Order), то должны
+    // имплементировать в этом классе интерфейс Comparable (без этого Collections.sort не доступно) и, соответственно,
+    // переопределить метод compareTo для объектов нашего класса таким образом, как мы предпочитаем потом сортировать объекты.
+    // А если хотим один раз по одному сортировать, другой - по другому, то создаем класс ((не в Order, а отдельно, п.ч.
+    // если мы будем эти методы внутри order писать, то это нарушения принципа Single Responsibility)),
+    // который имплементирует интерфейс Comparator (переопределяем метод compare).
+    // Т.е. сколько видов сортировок (не natural или reverseOrder) нам нужно
+    // СТОЛЬКО И ДОПОЛНИТЕЛЬНЫХ КЛАССОВ,ИМПЛЕМЕНТИРУЮЩИХ ИНТЕРФЕЙС КОМПАРАТОР надо создавать? Не обязательно, только,
+    // если такая сортировка будет использоваться еще. А если один раз - то анонимный класс
+
+    /**
+     * orders are equal when equals all Orders fields except id
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals ( Object o ) {
         if (this == o) return true;

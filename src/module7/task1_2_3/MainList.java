@@ -6,7 +6,7 @@ import static java.util.Comparator.reverseOrder;
 
 /**
  * Java#6
- * Module 7 Task 1
+ * Module 7 Task 2
  * Create Main class where you create 10 Orders with 10 Users and put it to the List
  * - sort list by Order price in decrease order
  * - sort list by Order price in increase order AND User city
@@ -32,7 +32,7 @@ public class MainList {
         User user9 = new User ( "Denis", "Ivashkov", "Rivne", 2050 );
         User user10 = new User ( "Vitalii", "Proskura", "Rivne", 2050 );
 
-        ArrayList <Order> orders = new ArrayList <> ( 10 );
+        List <Order> orders = new ArrayList <> ( 10 );
 
         Order order1 = new Order ( 50, Currency.USD, "Shoes blue model 345 s.41", "Miraton", user1 );
         Order order2 = new Order ( 1500, Currency.UAH, "Shoes blue model 345 s.41", "Miraton", user6 );
@@ -186,7 +186,7 @@ public class MainList {
 
         //separate list for as many lists as many unique cities are in User
         //Did not do this with lambdas
-}
+    }
 
 
     private static void print ( String string, List orders ) {
