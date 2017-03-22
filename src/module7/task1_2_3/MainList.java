@@ -54,7 +54,6 @@ public class MainList {
         Collections.sort ( orders, reverseOrder ( ) );
         print ( "Collection sorts by Order price in decrease order: ", orders );
 
-
         //sorts by Order price in increase order and User city
         Collections.sort ( orders, new Comparator <Order> ( ) {
             @Override

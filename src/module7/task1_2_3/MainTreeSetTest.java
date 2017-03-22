@@ -2,6 +2,8 @@ package module7.task1_2_3;
 
 import java.util.*;
 
+import static java.util.Comparator.reverseOrder;
+
 /**
  * Java#6
  * Module 7 Task 3
@@ -40,16 +42,13 @@ public class MainTreeSetTest {
         orders.add ( new Order ( 100, Currency.UAH, "Pork meet", "Silpo", user10 ) );
 
         System.out.println ( "Orders: " + orders );
+        System.out.println ( ifContainOrderWithLastName ( orders, "Petrov" ) );
 
-        System.out.println ( ifContainOrderWithLastName ( orders, "Berezin" ) );
-
-        List <Order> maxPrice = orderWithMaxPrice ( orders );
-        System.out.println ( maxPrice );
+        Order maxPrice = orderWithMaxPrice ( orders );
+        System.out.println ("Order with max price: \n" +  maxPrice);
 
         removeOrdersWithCurrencyInUSD ( orders );
         System.out.println ( "Orders without currency in USD: \n" + orders );
-
-
     }
 
     private static void removeOrdersWithCurrencyInUSD ( TreeSet <Order> orders ) {
@@ -62,31 +61,15 @@ public class MainTreeSetTest {
         }
     }
 
-
-    //TODO 4. Что-то я сильно намудрила с єтим методом (аж два прохода по дереву, но только с get проше не выходит.
-    // В комментариях второй вариант метода с last ())
-    private static List <Order> orderWithMaxPrice ( TreeSet <Order> orders ) {
-        List <Order> maxPriceList = new ArrayList <> ( );
-        int maxPrice = 0;
-        for ( Order order : orders ) {
-            if (order.getPrice ( ) > maxPrice) {
-                maxPrice = order.getPrice ( );
-            }
-        }
-        for ( Order order : orders ) {
-            if (order.getPrice ( ) == maxPrice)
-                maxPriceList.add ( order );
-        }
-        return maxPriceList;
-//        Order maxPrice1 = orders.last ();
-//        for ( Order order : orders ) {
-//            if (order.getPrice() == maxPrice1.getPrice())
-//                maxPriceList.add ( order );
-//        }
-//        return maxPriceList;
+    private static Order orderWithMaxPrice ( TreeSet <Order> orders ) {
+       return (orders.isEmpty ()) ? null : orders.last ();
+//       return (orders.isEmpty ()) ? null : orders.descendingSet().first ();
     }
 
+
+
     private static boolean ifContainOrderWithLastName ( TreeSet <Order> orders, String lastName ) {
+        if (orders.isEmpty ()) return false;
         for ( Order order : orders ) {
             if (order.getUser ( ).getLastName ( ).equals ( lastName )) {
                 return true;
@@ -95,3 +78,41 @@ public class MainTreeSetTest {
         return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+////Если надо вернуть список заказов с наибольшей ценой
+//    private static List <Order> orderWithMaxPrice ( TreeSet <Order> orders ) {
+//        List <Order> maxPriceList = new ArrayList <> ( );
+//        int maxPrice = 0;
+//        for ( Order order : orders ) {
+//            if (order.getPrice ( ) > maxPrice) {
+//                maxPrice = order.getPrice ( );
+//            }
+//        }
+//        for ( Order order : orders ) {
+//            if (order.getPrice ( ) == maxPrice)
+//                maxPriceList.add ( order );
+//        }
+//        return maxPriceList;
+////Самый правильный способ венуть список заказов с наибольшей ценой (используя orders.last ();)
+////        Order maxPrice1 = orders.last ();
+////        for ( Order order : orders ) {
+////            if (order.getPrice() == maxPrice1.getPrice())
+////                maxPriceList.add ( order );
+////        }
+////        return maxPriceList;
+//    }
+
+
+//    private static Order orderWithMaxPrice ( TreeSet <Order> orders ) {
+//        List<Order> orderList = new LinkedList <> ( orders );
+//        return orderList.get ( orderList.size () - 1 );
+//    }
