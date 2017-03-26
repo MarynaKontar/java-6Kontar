@@ -3,6 +3,7 @@ import LectureAndPractice.module3.webinar.Car;
 import module4.zoo.Animal;
 import module4.zoo.mammal.Monkey;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import static taskFromMinov.LRUCache.lruCache;
 
@@ -13,20 +14,21 @@ public class LRUCacheTest {
 
     public static void main(String[] args ) {
 
-        Map<Object, Object> lru = lruCache(4); //В кеш можно класть пары любых сочетаний типов?
-        lru.put(0, "1");
-        lru.put(1, "2");
+//        Map<Object, Object> lru = lruCache(4); //В кеш можно класть пары любых сочетаний типов?
+        Map<Object, Object> lru = new LinkedHashMap<> (  );
+        lru.put(3, "1");
+        lru.put(3, "2");
         lru.put("goit", "3");
         lru.put(3, "3");
         lru.put(4, "3");
         System.out.println(lru);
-
-        lru.get ( "goit" );
-        lru.get ( 1 );
-
-        lru.put(5, "fdg");
-        lru.put(5.56, 5);
-        System.out.println(lru);
+//
+        System.out.println ( lru.get ( 3 ));
+//        lru.get ( 1 );
+//
+//        lru.put(5, "fdg");
+//        lru.put(5.56, 5);
+//        System.out.println(lru);
 
 
 
