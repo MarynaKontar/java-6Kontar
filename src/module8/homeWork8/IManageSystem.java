@@ -18,7 +18,7 @@ import java.util.Set;
  *
  * @author Kontar Maryna
  */
-interface IManageSystem<T> {
+interface IManageSystem<T extends Comparable<T>> {
 
     T save(T obj, double price);
     T save(T obj);
