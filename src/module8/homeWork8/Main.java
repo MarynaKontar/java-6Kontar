@@ -10,28 +10,29 @@ import java.util.Map;
 import static module8.homeWork8.Country.*;
 
 /**
- * Created by User on 25.03.2017.
+ * Java#6
+ * Module 8 Task 4
+ * Проверьте работу Manage System в классе Main (на примере 5+ продуктов).
+ *
+ * @author Kontar Maryna
  */
 public class Main {
     public static void main ( String[] args ) {
 
-        Map<Fruit, Double> fruits = new HashMap <> ();
-        fruits.put (new Orange ( "Mini Oranges" ,ARGENTINA, 30), 28.0);
-        fruits.put (new Apple ( " Fuji" ,GEORGIA, 40), 21.0);
-        fruits.put (new Apple ( "Gala" ,LITHUANIA, 30), 14.0);
 
-        Map<Food, Double> database = new HashMap <> ( );
-        database.put ( new Eggs ( "Quail eggs" ,UKRAINE, 10), 23.0);
-        database.put ( new Bread ( "Rye bread" ,UKRAINE, 10), 23.0);
-        database.putAll ( fruits );
+        ManageSystem manageSystem = new ManageSystem ( );
+        manageSystem.save ( new Eggs ( "Quail eggs", UKRAINE, 10 ), 23.0 );
+        manageSystem.save ( new Bread ( "Rye bread", UKRAINE, 10 ), 23.0 );
 
+        Map <Fruit, Double> fruitsDatabase = new HashMap <> ( );
+        fruitsDatabase.put ( new Orange ( "Mini Oranges", ARGENTINA, 30 ), 28.0 );
+        fruitsDatabase.put ( new Apple ( " Fuji", GEORGIA, 40 ), 21.0 );
+        fruitsDatabase.put ( new Apple ( "Gala", LITHUANIA, 30 ), 14.0 );
 
+        manageSystem.saveAll ( fruitsDatabase );
 
-//        long k;
-//        for ( int i = 0; i < 10; i++ ) {
-//            k = IdGenerator.idGenerate ();
-//            System.out.println (k);
-//        }
+        System.out.println ( manageSystem.printDatabase ( ) );
+
 
     }
 }

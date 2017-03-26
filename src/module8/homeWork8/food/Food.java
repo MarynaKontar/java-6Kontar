@@ -83,6 +83,6 @@ public abstract class Food {
                 ", name='" + name + '\'' +
                 ", country=" + country +
                 ", expiration=" + expiration +
-                '}';
+                "}";
     }
 }
