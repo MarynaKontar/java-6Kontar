@@ -14,9 +14,10 @@ import java.util.Set;
  *
  * @author Kontar Maryna
  */
-public class ManageSystem<T extends Food> implements IManageSystem<T>{
+public final class ManageSystem<T extends Food> implements IManageSystem<T>{
 
-    //чтобы никто не мог изменить класс - final и private конструктор?
+    //чтобы никто не мог изменить класс - final?
+    //private конструктор и static методы сделать не могу т.к. в интерфейсе нельзя делать статич. методы
     private Map<Food, Double> database;
 
     @Override
