@@ -43,6 +43,7 @@ public class Main {
         manageSystem.delete ( orange );
         manageSystem.deleteById ( 3 );
         System.out.println ( manageSystem.printDatabase ( ));
+        manageSystem.printProductsSortedByName ();
 
     }
 }

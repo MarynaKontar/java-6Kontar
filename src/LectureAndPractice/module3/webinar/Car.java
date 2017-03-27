@@ -1,18 +1,20 @@
 package LectureAndPractice.module3.webinar;
 
-public class Car {
+import java.util.Vector;
+
+public class Car extends Vehicle implements Comparable<Vehicle>{
     int year;
     String model;
     int price;
     String nameOfTheOwner;
 
 
-    Car(String model, int year) {
+    public Car(String model, int year) {
         this.model = model;
         this.year = year;
     }
 
-    Car(int year, String model, int price, String nameOfTheOwner) {
+    public Car(int year, String model, int price, String nameOfTheOwner) {
         this.year = year;
         this.model = model;
         this.price = price;
@@ -38,12 +40,33 @@ public class Car {
         System.out.println(this.year);
     }
 
+    public int getPrice () {
+        return price;
+    }
 
-    public static void main(String[] args) {
+    public void setPrice ( int price ) {
+        this.price = price;
+    }
+
+    public static void main( String[] args) {
 
 
     }
 
 
+    @Override
+    public int compareTo ( Vehicle o ) {
+        return getPrice () - o.getPrice ();
+    }
 
+    @Override
+    public String toString () {
+        final StringBuilder sb = new StringBuilder ( "Car{" );
+        sb.append ( "year=" ).append ( year );
+        sb.append ( ", model='" ).append ( model ).append ( '\'' );
+        sb.append ( ", price=" ).append ( price );
+        sb.append ( ", nameOfTheOwner='" ).append ( nameOfTheOwner ).append ( '\'' );
+        sb.append ( '}' );
+        return sb.toString ( );
+    }
 }

@@ -17,6 +17,10 @@ import java.util.Set;
  * Set<T> getProducts();
  * List<Double> getPrices();
  *
+ * Добавьте в интерфейс методы и проверьте их работу:
+ * void printProductsSortedByName(); - выводит список «продукт-цена», отсортированных по имени продукта.
+ * void printProductsSortedByPrice();- выводит список «продукт-цена», отсортированных по цене продукта (по возрастанию).
+ *
  * @author Kontar Maryna
  */
 interface IManageSystem<T extends Comparable<T>> {
@@ -28,7 +32,9 @@ interface IManageSystem<T extends Comparable<T>> {
     T get(int id);
     Double getPrice(T obj);
     Set<T> getProducts();
-    Collection<Double> getPrices();
+    Collection<Double> getPrices(); //переделать на List<Double> getPrices();
+    void printProductsSortedByName();
+    void printProductsSortedByPrice();
 
 }
 

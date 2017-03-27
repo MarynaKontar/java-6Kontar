@@ -31,9 +31,10 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
 
     @Override
     public T save ( T food ) {
-        database.put ( food, 0.0 );
+        database.put ( food, null );
         return food;
-        //TODO 4. В реальности цены указывают в BigDecimal?   database.put ( food, new BigDecimal (0) );
+        //TODO 4. В реальности цены указывают в BigDecimal?   database.put ( food, new BigDecimal (null) );
+        //Цена null или 0.0?
     }
 
     public void saveAll(Map<T, Double> newDatabase){  //НАПИСАЛА ДЛЯ УДОБСТВА
@@ -67,6 +68,7 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
     @Override
     public Double getPrice ( T food ) {
             return database.get ( food );
+            //TODO 5. если database.get ( food ) == null? возвращать null или 0.0?
     }
 
     @Override
@@ -78,6 +80,17 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
     public Collection<Double> getPrices () {
         return database.values ();
         //TODO  3. как Collection в List лучше перевести?
+    }
+
+    @Override
+    public void printProductsSortedByName () {
+        Map<T, Double> sortedByNameDatabase = new TreeMap<>(database);
+        System.out.println (sortedByNameDatabase );
+    }
+
+    @Override
+    public void printProductsSortedByPrice () {
+
     }
 
     @Override
