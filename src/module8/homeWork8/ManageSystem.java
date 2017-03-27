@@ -2,10 +2,8 @@ package module8.homeWork8;
 
 import module8.homeWork8.food.Food;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * Java#6
@@ -35,6 +33,7 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
     public T save ( T food ) {
         database.put ( food, 0.0 );
         return food;
+        //TODO 4. В реальности цены указывают в BigDecimal?   database.put ( food, new BigDecimal (0) );
     }
 
     public void saveAll(Map<T, Double> newDatabase){  //НАПИСАЛА ДЛЯ УДОБСТВА
@@ -76,9 +75,9 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
     }
 
     @Override
-    public List <Double> getPrices () {
-        return (List <Double>) database.values ();
-        //TODO  3. Collection в List так лучше перевести или по другому?
+    public Collection<Double> getPrices () {
+        return database.values ();
+        //TODO  3. как Collection в List лучше перевести?
     }
 
     @Override

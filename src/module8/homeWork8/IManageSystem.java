@@ -1,5 +1,6 @@
 package module8.homeWork8;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -27,10 +28,9 @@ interface IManageSystem<T extends Comparable<T>> {
     T get(int id);
     Double getPrice(T obj);
     Set<T> getProducts();
-    List<Double> getPrices();
+    Collection<Double> getPrices();
 
 }
-
 
 
 // Мартин "Чистій код" (2017) стр. 47  - интерфейсы без префиксов (ManageSystem),

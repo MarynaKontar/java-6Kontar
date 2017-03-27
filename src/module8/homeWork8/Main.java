@@ -33,6 +33,9 @@ public class Main {
 
         System.out.println ( manageSystem.printDatabase ( ) );
 
+        System.out.println (manageSystem.getProducts () );
+        System.out.println (manageSystem.getPrices () );
+
 
     }
 }
