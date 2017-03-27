@@ -6,7 +6,7 @@ import module8.homeWork8.StoredInTheRefrigerator;
 /**
  * Created by User on 26.03.2017.
  */
-public class Eggs extends Food implements StoredInTheRefrigerator {
+public class Eggs extends Food implements StoredInTheRefrigerator ,Comparable<Food>{
 
     public Eggs ( String name, Country country, int expiration ) {
         super ( name, country, expiration );

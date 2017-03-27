@@ -77,8 +77,8 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
     }
 
     @Override
-    public Collection<Double> getPrices () {
-        return database.values ();
+    public List<Double> getPrices () {
+        return new ArrayList <> ( database.values ());
         //TODO  3. как Collection в List лучше перевести?
     }
 
