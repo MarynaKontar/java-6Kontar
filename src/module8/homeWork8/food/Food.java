@@ -17,10 +17,14 @@ import module8.homeWork8.IdGenerator;
  * @author Kontar Maryna
  */
 public abstract class Food {
+
+    {setTypeOfFood ( this.getClass ().getSimpleName ());}
+
     private final long id;  //TODO 1. стоит ли делать final?
     private String name;
     private Country country;
     private int expiration;
+    private String typeOfFood;
 
     public Food () {
         id = IdGenerator.idGenerate ();
@@ -61,6 +65,15 @@ public abstract class Food {
         this.expiration = expiration;
     }
 
+
+    public String getTypeOfFood () {
+        return typeOfFood;
+    }
+
+    public void setTypeOfFood ( String typeOfFood ) {
+        this.typeOfFood = typeOfFood;
+    }
+
     @Override
     public boolean equals ( Object o ) {
         if (this == o) return true;
@@ -80,7 +93,7 @@ public abstract class Food {
     public String toString () {
         return "Food{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + getTypeOfFood () + ": " + name + '\'' +
                 ", country=" + country +
                 ", expiration=" + expiration +
                 "}";

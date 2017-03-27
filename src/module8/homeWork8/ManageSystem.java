@@ -48,9 +48,9 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
     @Override
     public void deleteById ( int id ) {
         Set <T> setOfFoods = database.keySet ( );
-        for ( T food : setOfFoods ) {
-            if (food.getId ( ) == id)
-                database.remove ( food );
+        for (Iterator <T> iterator = setOfFoods.iterator(); iterator.hasNext();) {
+            if (iterator.next().getId() == id )
+                iterator.remove();
         }
     }
 
@@ -66,7 +66,7 @@ public final class ManageSystem<T extends Food & Comparable <T>> implements IMan
 
     @Override
     public Double getPrice ( T food ) {
-        return database.get ( food );
+            return database.get ( food );
     }
 
     @Override
