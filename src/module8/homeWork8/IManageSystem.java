@@ -23,7 +23,7 @@ import java.util.Set;
  *
  * @author Kontar Maryna
  */
-interface IManageSystem<T extends Comparable<T>> {
+interface IManageSystem<T> {
 
     T save(T obj, double price);
     T save(T obj);
@@ -32,7 +32,7 @@ interface IManageSystem<T extends Comparable<T>> {
     T get(int id);
     Double getPrice(T obj);
     Set<T> getProducts();
-    Collection<Double> getPrices(); //переделать на List<Double> getPrices();
+    List<Double> getPrices(); //переделать на List<Double> getPrices();
     void printProductsSortedByName();
     void printProductsSortedByPrice();
 

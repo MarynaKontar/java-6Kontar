@@ -20,20 +20,15 @@ public abstract class Food implements Comparable <Food> {
 
     {setTypeOfFood ( this.getClass ().getSimpleName ());}
 
-    @Override
-    public int compareTo ( Food o ) {
-        return this.getName ().compareTo ( o.getName () );
-    }
-
     private final long id;  //TODO 1. стоит ли делать final?
     private String name;
     private Country country;
     private int expiration;
     private String typeOfFood;
-
-    public Food () {
-        id = IdGenerator.idGenerate ();
-    }
+//
+//    public Food () {
+//        id = IdGenerator.idGenerate ();
+//    }
 
     public Food ( String name, Country country, int expiration ) {
         id = IdGenerator.idGenerate ();
@@ -92,6 +87,11 @@ public abstract class Food implements Comparable <Food> {
     @Override
     public int hashCode () {
         return (int) (getId ( ) ^ (getId ( ) >>> 32));
+    }
+
+    @Override
+    public int compareTo ( Food o ) {
+        return this.getName ().compareTo ( o.getName () );
     }
 
     @Override

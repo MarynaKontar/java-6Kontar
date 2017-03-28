@@ -19,8 +19,7 @@ import static module8.homeWork8.Country.*;
 public class Main {
     public static void main ( String[] args ) {
 
-
-        ManageSystem<Food> manageSystem = new ManageSystem <Food>( );
+        ManageSystem<Food> manageSystem = new ManageSystem<> ( );
         manageSystem.save ( new Eggs ( "Quail eggs", UKRAINE, 10 ), 23.0 );
 //        manageSystem.save ( new Bread ( "Rye bread", UKRAINE, 10 ), 23.0 );
 //        manageSystem.save ( new Bread ( "Wheat bread", UKRAINE, 7 ) );
@@ -43,7 +42,7 @@ public class Main {
 //        manageSystem.delete ( orange );
         manageSystem.deleteById ( 3 );
         System.out.println ( manageSystem.printDatabase ( ));
-//        manageSystem.printProductsSortedByName ();
+        manageSystem.printProductsSortedByName ();
 
     }
 }
