@@ -19,7 +19,9 @@ import java.util.function.Predicate;
 public final class ManageSystem <T extends Food> implements IManageSystem <T> {
 
     //TODO  2. чтобы никто не мог изменить методы класса (унаследовав его) - final class?
-    //private конструктор и все методы static сделать не могу т.к. в интерфейсе нельзя делать статич. методы
+    //private конструктор и все методы static в интерфейсе сделать? (только обнаружила,
+    // что в интерфейсе можно не абстрактные статич. методы делать), но тогда нет смысла в реализации интерфейса
+    //и Андрей говорил, что методы интерфейса работают медленнее
 
 
     private Map <T, Double> database = new HashMap <> ( );
@@ -35,13 +37,12 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
         database.put ( food, 0.0 );
         return food;
         //TODO 3. в чем будет разница, если написать  public <T> T save ( T food ) {...} ?
-        //TODO 4. В реальности цены указывают в BigDecimal?   database.put ( food, new BigDecimal (null/0.0) );
+        //TODO 4. В реальности цены указывают в BigDecimal?   database.put(food, new BigDecimal (null/0.0) ); ?
         //Цена null или 0.0? Если null, то printProductsSortedByPrice () будет выдавать ошибку при сравнении с null
     }
 
-    public void saveAll ( Map <? extends T, Double> newDatabase ) {  //НАПИСАЛА ДЛЯ УДОБСТВА
+    public void saveAll ( Map <? extends T, Double> newDatabase ) {  //НАПИСАЛА ДЛЯ УДОБСТВА ДОБАВЛЕНИЯ ЦЕЛЫХ MAP В database
         database.putAll ( newDatabase );
-        //TODO 5. почему здесь без ? extends T не работает, а в остальных методах все нормально?
     }
 
 
@@ -67,6 +68,7 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
 //        } );
 //      //third variant
         setOfFoods.removeIf (t -> t.getId () == id);
+        //TODO 8. что значит подчеркивание id? effectivelly final?
     }
 
     @Override
@@ -100,7 +102,17 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
 
     @Override
     public void printProductsSortedByName () {
-        Map <T, Double> sortedByNameDatabase = new TreeMap <> ( database );
+//      //first variant
+//        Map <T, Double> sortedByNameDatabase = new TreeMap <> ( new Comparator <T> ( ) {
+//            @Override
+//            public int compare ( T o1, T o2 ) {
+//                return o1.getName ().compareTo ( o2.getName () );
+//            }
+//        } );
+
+//      //second variant
+        Map <T, Double> sortedByNameDatabase = new TreeMap <> ((o1,o2) -> o1.getName ().compareTo ( o2.getName () ));
+        sortedByNameDatabase.putAll(database);
         System.out.println ("Product sorted by name: (СОРТИРУЕТ ПО ИМЕНИ ТОВАРА, НО Я ЕШЕ ПРОПИСАЛА ПЕРЕД ИМЕНЕМ ТОВАРА, НАЗВАНИЕ КЛАССА)" );
         System.out.println ( sortedByNameDatabase );
     }
@@ -137,3 +149,23 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
         return toString ( );
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * И все таки остался такой вопрос. В начале при проектировании, если я знаю что мне надо будет сортировать элементы database и с этой базой будет работать ManageSystem, не надо ли мне в ManageSystem (или его интерфейсе) указать, что эта система будет работать только с сортируемыми  объектами (= класс которых имплементирует Comparable)? В том виде, как сделано у меня, я могу написать класс
+ */

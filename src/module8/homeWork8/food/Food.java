@@ -16,7 +16,7 @@ import module8.homeWork8.IdGenerator;
  * Товары считаются одинаковыми, если их id одинаковы. Переопределите методы hashCode и equals соответственно.
  * @author Kontar Maryna
  */
-public abstract class Food implements Comparable <Food> {
+public abstract class Food {
 
     {setTypeOfFood ( this.getClass ().getSimpleName ());} // сделала просто, чтобы потренироваться со статич. методом инициал.
 
@@ -25,10 +25,6 @@ public abstract class Food implements Comparable <Food> {
     private Country country;
     private int expiration;
     private String typeOfFood;
-//
-//    public Food () {
-//        id = IdGenerator.idGenerate ();
-//    }
 
     public Food ( String name, Country country, int expiration ) {
         id = IdGenerator.idGenerate ();
@@ -87,11 +83,6 @@ public abstract class Food implements Comparable <Food> {
     @Override
     public int hashCode () {
         return (int) (getId ( ) ^ (getId ( ) >>> 32));
-    }
-
-    @Override
-    public int compareTo ( Food o ) {
-        return this.getName ().compareTo ( o.getName () );
     }
 
     @Override

@@ -2,6 +2,7 @@ package module8.homeWork8;
 
 import module8.homeWork8.food.Food;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -37,8 +38,11 @@ interface IManageSystem <T> {
     List<Double> getPrices();
     void printProductsSortedByName();
     void printProductsSortedByPrice();
-
 }
+
+
+
+
 
 
 // Мартин "Чистій код" (2017) стр. 47  - интерфейсы должны быть без префиксов (ManageSystem),

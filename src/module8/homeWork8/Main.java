@@ -26,9 +26,9 @@ public class Main {
         Food tea = manageSystem.save ( new Tea ( "Silver tip", SRI_LANKA, 365 * 3 ), 580 );
 
         tea.setName ( "cgfghh" );
-        //TODO 8. Я могу менять данные в базе данных (database) не используя  manageSystem:
-        //как лучше избежать этого?
-        // Методы  класса Food сделать package private?
+        //TODO 9. Вопрос по безопасно данніх в database. Я могу менять данные в базе данных (database) не используя  manageSystem:
+        //как лучше избежать этого? кроме того, что set-ы убрать
+        // Методы  класса Food сделать package private чтобі они были доступны ManageSystem, но не пользователю класса?
         // Попытаться сделать Food (его наследников) immutable  - убрать set, сделать поля final. Но класс я не могу сделать final.
         // Или чтобы методы в ManageSystem возвращали копии объектов (пока не знаю как)
 

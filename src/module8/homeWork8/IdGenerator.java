@@ -15,6 +15,11 @@ public class IdGenerator {
     private IdGenerator () {
     }
 
+
+    /**
+     * return id from 1
+     * @return
+     */
     public static long idGenerate () {
         return ++counter;
     }
