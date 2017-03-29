@@ -1,5 +1,7 @@
 package module8.homeWork8;
 
+import module8.homeWork8.food.Food;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -25,8 +27,8 @@ import java.util.Set;
  */
 interface IManageSystem<T> {
 
-    T save(T obj, double price);
-    T save(T obj);
+    T save( T obj, double price);
+    T save ( T food );
     void delete(T obj) ;
     void deleteById(int id);
     T get(int id);

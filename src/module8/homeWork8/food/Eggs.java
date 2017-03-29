@@ -1,7 +1,6 @@
 package module8.homeWork8.food;
 
 import module8.homeWork8.Country;
-import module8.homeWork8.StoredInTheRefrigerator;
 
 /**
  * Created by User on 26.03.2017.

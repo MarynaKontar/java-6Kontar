@@ -18,7 +18,7 @@ import module8.homeWork8.IdGenerator;
  */
 public abstract class Food implements Comparable <Food> {
 
-    {setTypeOfFood ( this.getClass ().getSimpleName ());}
+    {setTypeOfFood ( this.getClass ().getSimpleName ());} // сделала просто, чтобы потренироваться со статич. методом инициал.
 
     private final long id;  //TODO 1. стоит ли делать final?
     private String name;

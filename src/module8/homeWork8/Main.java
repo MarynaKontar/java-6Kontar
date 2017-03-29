@@ -21,28 +21,29 @@ public class Main {
 
         ManageSystem<Food> manageSystem = new ManageSystem<> ( );
         manageSystem.save ( new Eggs ( "Quail eggs", UKRAINE, 10 ), 23.0 );
-//        manageSystem.save ( new Bread ( "Rye bread", UKRAINE, 10 ), 23.0 );
-//        manageSystem.save ( new Bread ( "Wheat bread", UKRAINE, 7 ) );
-        manageSystem.save ( new Tea ( "Silver tip", SRI_LANKA, 365*3 ) );
+        manageSystem.save ( new Bread ( "Rye bread", UKRAINE, 10 ));
+        manageSystem.save ( new Bread ( "Wheat bread", UKRAINE, 7 ), 11 );
+        manageSystem.save ( new Tea ( "Silver tip", SRI_LANKA, 365*3 ) ,580);
 
-//        Map <Fruit, Double> fruitsDatabase = new HashMap <> ( );
-//        Orange orange = new Orange ( "Mini Oranges", ARGENTINA, 30 );
-//        fruitsDatabase.put (orange , 28.0 );
-//        fruitsDatabase.put ( new Apple ( " Fuji", GEORGIA, 40 ), 21.0 );
-//        fruitsDatabase.put ( new Apple ( "Gala", LITHUANIA, 30 ), 14.0 );
+        Orange orange = new Orange ( "Mini Oranges", ARGENTINA, 30 );
+        manageSystem.save ( orange, 28 );
 
-//        manageSystem.saveAll ( fruitsDatabase );
+        Map <Fruit, Double> fruitsDatabase = new HashMap <> ( );
+        fruitsDatabase.put ( new Apple ( " Fuji", GEORGIA, 40 ), 21.0 );
+        fruitsDatabase.put ( new Apple ( "Gala", LITHUANIA, 30 ), 14.0 );
+        manageSystem.saveAll ( fruitsDatabase );
 
 
         System.out.println ( manageSystem.printDatabase ( ) );
         System.out.println (manageSystem.getProducts () );
         System.out.println ( manageSystem.getPrices ());
-//        System.out.println (manageSystem.getPrice (orange));
+        System.out.println (manageSystem.getPrice (orange));
         System.out.println (manageSystem.get(4));
 //        manageSystem.delete ( orange );
-        manageSystem.deleteById ( 3 );
+//        manageSystem.deleteById ( 3 );
         System.out.println ( manageSystem.printDatabase ( ));
         manageSystem.printProductsSortedByName ();
+        manageSystem.printProductsSortedByPrice ();
 
     }
 }
