@@ -25,7 +25,7 @@ import java.util.Set;
  *
  * @author Kontar Maryna
  */
-interface IManageSystem<T> {
+interface IManageSystem <T> {
 
     T save( T obj, double price);
     T save ( T food );
@@ -34,12 +34,12 @@ interface IManageSystem<T> {
     T get(int id);
     Double getPrice(T obj);
     Set<T> getProducts();
-    List<Double> getPrices(); //переделать на List<Double> getPrices();
+    List<Double> getPrices();
     void printProductsSortedByName();
     void printProductsSortedByPrice();
 
 }
 
 
-// Мартин "Чистій код" (2017) стр. 47  - интерфейсы без префиксов (ManageSystem),
+// Мартин "Чистій код" (2017) стр. 47  - интерфейсы должны быть без префиксов (ManageSystem),
 // а их реализация может быть ManageSystemImp. Потому что клиент чаще работает с интерфейсом, а префиксы отвлекают от смысла

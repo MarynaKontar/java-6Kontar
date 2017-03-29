@@ -16,7 +16,7 @@ import java.util.function.Predicate;
  *
  * @author Kontar Maryna
  */
-public final class ManageSystem <T extends Food>  implements IManageSystem <T> {
+public final class ManageSystem <T extends Food> implements IManageSystem <T> {
 
     //TODO  2. чтобы никто не мог изменить методы класса (унаследовав его) - final class?
     //private конструктор и все методы static сделать не могу т.к. в интерфейсе нельзя делать статич. методы
@@ -108,13 +108,14 @@ public final class ManageSystem <T extends Food>  implements IManageSystem <T> {
     @Override
     public void printProductsSortedByPrice () {
         List <Map.Entry <T, Double>> list = new LinkedList <> ( database.entrySet ( ) );
+//      //first variant
 //        list.sort ( new Comparator <Map.Entry <T, Double>> ( ) {
 //            @Override
 //            public int compare ( Map.Entry <T, Double> o1, Map.Entry <T, Double> o2 ) {
 //                return o1.getValue ( ).compareTo ( o2.getValue ( ) );
 //            }
 //        } );
-
+//      //second variant
         list.sort ( ( o1, o2 ) -> { return o1.getValue ( ).compareTo ( o2.getValue ( ) );
         } );
 

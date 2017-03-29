@@ -19,11 +19,18 @@ import static module8.homeWork8.Country.*;
 public class Main {
     public static void main ( String[] args ) {
 
-        ManageSystem<Food> manageSystem = new ManageSystem<> ( );
+        ManageSystem <Food> manageSystem = new ManageSystem <> ( );
         manageSystem.save ( new Eggs ( "Quail eggs", UKRAINE, 10 ), 23.0 );
-        manageSystem.save ( new Bread ( "Rye bread", UKRAINE, 10 ));
+        manageSystem.save ( new Bread ( "Rye bread", UKRAINE, 10 ) );
         manageSystem.save ( new Bread ( "Wheat bread", UKRAINE, 7 ), 11 );
-        manageSystem.save ( new Tea ( "Silver tip", SRI_LANKA, 365*3 ) ,580);
+        Food tea = manageSystem.save ( new Tea ( "Silver tip", SRI_LANKA, 365 * 3 ), 580 );
+
+        tea.setName ( "cgfghh" );
+        //TODO 8. Я могу менять данные в базе данных (database) не используя  manageSystem:
+        //как лучше избежать этого?
+        // Методы  класса Food сделать package private?
+        // Попытаться сделать Food (его наследников) immutable  - убрать set, сделать поля final. Но класс я не могу сделать final.
+        // Или чтобы методы в ManageSystem возвращали копии объектов (пока не знаю как)
 
         Orange orange = new Orange ( "Mini Oranges", ARGENTINA, 30 );
         manageSystem.save ( orange, 28 );
@@ -35,15 +42,15 @@ public class Main {
 
 
         System.out.println ( manageSystem.printDatabase ( ) );
-        System.out.println (manageSystem.getProducts () );
-        System.out.println ( manageSystem.getPrices ());
-        System.out.println (manageSystem.getPrice (orange));
-        System.out.println (manageSystem.get(4));
+        System.out.println ( manageSystem.getProducts ( ) );
+        System.out.println ( manageSystem.getPrices ( ) );
+        System.out.println ( manageSystem.getPrice ( orange ) );
+        System.out.println ( manageSystem.get ( 4 ) );
         manageSystem.delete ( orange );
         manageSystem.deleteById ( 3 );
-        System.out.println ( manageSystem.printDatabase ( ));
-        manageSystem.printProductsSortedByName ();
-        manageSystem.printProductsSortedByPrice ();
+        System.out.println ( manageSystem.printDatabase ( ) );
+        manageSystem.printProductsSortedByName ( );
+        manageSystem.printProductsSortedByPrice ( );
 
     }
 }
