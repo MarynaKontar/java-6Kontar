@@ -39,8 +39,8 @@ public class Main {
         System.out.println ( manageSystem.getPrices ());
         System.out.println (manageSystem.getPrice (orange));
         System.out.println (manageSystem.get(4));
-//        manageSystem.delete ( orange );
-//        manageSystem.deleteById ( 3 );
+        manageSystem.delete ( orange );
+        manageSystem.deleteById ( 3 );
         System.out.println ( manageSystem.printDatabase ( ));
         manageSystem.printProductsSortedByName ();
         manageSystem.printProductsSortedByPrice ();

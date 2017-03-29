@@ -53,16 +53,20 @@ public final class ManageSystem <T extends Food>  implements IManageSystem <T> {
     @Override
     public void deleteById ( int id ) {
         Set <T> setOfFoods = database.keySet ( );
+//      //first variant
 //        for ( Iterator <T> iterator = setOfFoods.iterator ( ); iterator.hasNext ( ); ) {
 //            if (iterator.next ( ).getId ( ) == id)
 //                iterator.remove ( );
 //        }
-        setOfFoods.removeIf ( new Predicate <T> ( ) {
-            @Override
-            public boolean test ( T t ) {
-                return t.getId () == id;
-            }
-        } );
+//      //second variant
+//        setOfFoods.removeIf ( new Predicate <T> ( ) {
+//            @Override
+//            public boolean test ( T t ) {
+//                return t.getId () == id;
+//            }
+//        } );
+//      //third variant
+        setOfFoods.removeIf (t -> t.getId () == id);
     }
 
     @Override
