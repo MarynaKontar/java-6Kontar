@@ -85,7 +85,7 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
     public Double getPrice ( T food ) {
         if (food == null) return 0.0;
         return database.get ( food );
-        //TODO 6. если database.get ( food ) == null? возвращать null или 0.0?
+        //TODO 6. если database.get ( food ) == null? возвращать null или 0.0? getOrDefault
     }
 
     @Override

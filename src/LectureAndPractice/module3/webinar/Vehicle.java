@@ -16,4 +16,6 @@ public class Vehicle {
     public int getPrice () {
         return price;
     }
+
+
 }

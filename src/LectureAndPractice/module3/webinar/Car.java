@@ -69,4 +69,12 @@ public class Car extends Vehicle implements Comparable<Vehicle>{
         sb.append ( '}' );
         return sb.toString ( );
     }
+
+    public String getModel () {
+        return model;
+    }
+
+    public int getYear () {
+        return year;
+    }
 }
