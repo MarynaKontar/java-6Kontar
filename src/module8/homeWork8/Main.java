@@ -32,8 +32,12 @@ public class Main {
         // Попытаться сделать Food (его наследников) immutable  - убрать set, сделать поля final. Но класс я не могу сделать final.
         // Или чтобы методы в ManageSystem возвращали копии объектов (пока не знаю как)
 
+        // Немножко надуманный вопрос. Ты можешь менять данные, потому что у нас НЕ реальная БД, а обычная мапа внутри java.
+        // В реальной жизни БД находится отдельно и вщаимодействие с ней проходит через специальные библиотеки.
+        // В таких случаях классы конструируются и работают по другому.
+
         Orange orange = new Orange ( "Mini Oranges", ARGENTINA, 30 );
-        manageSystem.save ( orange, 28 );
+        manageSystem.save ( orange );
 
         Map <Fruit, Double> fruitsDatabase = new HashMap <> ( );
         fruitsDatabase.put ( new Apple ( " Fuji", GEORGIA, 40 ), 21.0 );

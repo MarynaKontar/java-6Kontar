@@ -1,7 +1,4 @@
-package module8.homeWork8.food;
-
-import module8.homeWork8.Country;
-import module8.homeWork8.IdGenerator;
+package module8.homeWork8.homeWork8WithoutInheritance;
 
 /**
  * Java#6
@@ -16,17 +13,12 @@ import module8.homeWork8.IdGenerator;
  * Товары считаются одинаковыми, если их id одинаковы. Переопределите методы hashCode и equals соответственно.
  * @author Kontar Maryna
  */
-public abstract class Food {
+public class Food {
 
-    {setTypeOfFood ( this.getClass ().getSimpleName ());} // сделала просто, чтобы потренироваться со статич. методом инициал.
-    //Это нестатический блок, чтобы сделать его статическим необходимо добавить ключевое слово static.
-
-
-    private final long id;  //TODO 1. стоит ли делать final?  Не обязательно, но можно. Фактически поле и так никак нельзя изменить.
+    private final long id;
     private String name;
     private Country country;
     private int expiration;
-    private String typeOfFood;
 
     public Food ( String name, Country country, int expiration ) {
         id = IdGenerator.idGenerate ();
@@ -63,15 +55,6 @@ public abstract class Food {
         this.expiration = expiration;
     }
 
-
-    public String getTypeOfFood () {
-        return typeOfFood;
-    }
-
-    public void setTypeOfFood ( String typeOfFood ) {
-        this.typeOfFood = typeOfFood;
-    }
-
     @Override
     public boolean equals ( Object o ) {
         if (this == o) return true;
@@ -91,7 +74,7 @@ public abstract class Food {
     public String toString () {
         return "Food{" +
                 "id=" + id +
-                ", name='" + getTypeOfFood () + ": " + name + '\'' +
+                ", name='" + name + '\'' +
                 ", country=" + country +
                 ", expiration=" + expiration +
                 "}";

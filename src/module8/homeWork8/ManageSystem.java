@@ -23,6 +23,11 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
     // что в интерфейсе можно не абстрактные статич. методы делать), но тогда нет смысла в реализации интерфейса
     //и Андрей говорил, что методы интерфейса работают медленнее
 
+    // final class - хорошая идея для безопасности. Мы запретим наследование и закроем доступ через другие классы к
+    // нашей БД. private конструктор и все методы static в интерфейсе - нет, зачем? Это НЕ утильный класс и мы
+    // БУДЕМ создавать его экземпляр. НЕабстрактные методы в интерфейсе - это Java 8. Пока что, не обращай внимания
+    // на этот механизм.
+
 
     private Map <T, Double> database = new HashMap <> ( );
 
@@ -37,8 +42,12 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
         database.put ( food, 0.0 );
         return food;
         //TODO 3. в чем будет разница, если написать  public <T> T save ( T food ) {...} ?
+        // <T> используется для дженериков-методов вне классов-дженериков.
         //TODO 4. В реальности цены указывают в BigDecimal?   database.put(food, new BigDecimal (null/0.0) ); ?
         //Цена null или 0.0? Если null, то printProductsSortedByPrice () будет выдавать ошибку при сравнении с null
+        // По BigDecimal - дял цен этот обьект точно излишен. Это обьекты с очень большим диапазаноном значений.
+        // Для нас достаточно Double. В реальном проекте для такой задачи тоже бы использовали double.
+        // null или 0.0 в зависимости от контекста и твоего архитектурного решения. В данном случае я допуская и то и другое.
     }
 
     public void saveAll ( Map <? extends T, Double> newDatabase ) {  //НАПИСАЛА ДЛЯ УДОБСТВА ДОБАВЛЕНИЯ ЦЕЛЫХ MAP В database
@@ -83,9 +92,9 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
 
     @Override
     public Double getPrice ( T food ) {
-        if (food == null) return 0.0;
         return database.get ( food );
         //TODO 6. если database.get ( food ) == null? возвращать null или 0.0? getOrDefault
+       //Тут логично вернуть null, чтобы было понятно, что ты ничего не нашла. 0.0 может запутать пользователя.
     }
 
     @Override
@@ -98,6 +107,8 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
         return new ArrayList <> ( database.values ( ) );
         //return Collections.unmodifiableCollection ( database.values () );
         //TODO  7. как Collection в List лучше перевести?
+        // Оба варианта приемлемы. unmodifiableCollection мне нравится больше, потому что цены доп.
+        // ход безопасности в котором ты не даёшь менять то, что не должно менятся.
     }
 
     @Override
@@ -152,20 +163,3 @@ public final class ManageSystem <T extends Food> implements IManageSystem <T> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * И все таки остался такой вопрос. В начале при проектировании, если я знаю что мне надо будет сортировать элементы database и с этой базой будет работать ManageSystem, не надо ли мне в ManageSystem (или его интерфейсе) указать, что эта система будет работать только с сортируемыми  объектами (= класс которых имплементирует Comparable)? В том виде, как сделано у меня, я могу написать класс
- */
