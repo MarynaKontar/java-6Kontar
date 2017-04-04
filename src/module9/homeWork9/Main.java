@@ -20,7 +20,7 @@ import static module9.homeWork9.Orders.*;
  *
  * @author Kontar Maryna
  */
-public class MainList {
+public class Main {
 
     public static void main ( String[] args ) {
 
