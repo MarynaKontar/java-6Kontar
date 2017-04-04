@@ -17,7 +17,7 @@ public class UseShaps {
 
         Rectangle toRemove = new Rectangle(6, 4);
 
-        listShape.add(new Rectangle(6, 4));
+        System.out.println (listShape.add(new Rectangle(6, 4)));
         listShape.add(new Rectangle(2, 8 ));
         listShape.add(new Rectangle(1, 6 ));
         listShape.add(new Square(10 ));
@@ -31,6 +31,8 @@ public class UseShaps {
         listShape.remove(toRemove);
 
         System.out.println (listShape );
+//        groupPrint ( listShape );
+        areaOutput(listShape);
 
         // If equals overriden
         while (listShape.remove(new Circle(15)) == true){
@@ -55,14 +57,14 @@ public class UseShaps {
 
 //        areaOutput(listShape);
 
-        System.out.println (listShape );
-
-
-        Group listToRemove = new Group ( );
-        listToRemove.add (new Square(10 )  );
-        listToRemove.add (new Square(30 )  );
-//        listShape.removeAll ( listToRemove );
-        System.out.println (listShape );
+//        System.out.println (listShape.toString () );
+//
+//
+//        Group listToRemove = new Group ( );
+//        listToRemove.add (new Square(10 )  );
+//        listToRemove.add (new Square(30 )  );
+////        listShape.removeAll ( listToRemove );
+//        System.out.println (listShape );
 
 //        listShape.addAll ( listToRemove );
 //        System.out.println (listShape );
@@ -70,6 +72,10 @@ public class UseShaps {
         System.out.println (listShape.getMaxArea ());
         System.out.println (listShape.getMinArea ());
         System.out.println (listShape.getSumAreas ());
+    }
+
+    private static void groupPrint ( Group listShape ) {
+        System.out.println (listShape );;
     }
 
 

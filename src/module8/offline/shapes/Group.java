@@ -8,49 +8,49 @@ import java.util.List;
 /**
  * Created by citsym on 09.03.17.
  */
-public class Group {
+public class Group extends ArrayList<Shape> {
 
     private List <Shape> list = new ArrayList <> ( );
 
 
-    public int size () {
-        return list.size ( );
-    }
-
-    public boolean isEmpty () {
-        return list.isEmpty ( );
-    }
-
-    public void add ( Shape shape ) {
-        list.add ( shape );
-    }
-
-    public boolean remove ( Shape shape ) {
-        return list.remove ( shape );
-    }
-
-    public Shape remove ( int indx ) {
-        return list.remove ( indx );
-    }
-
-    public boolean addAll ( Group group ) {
-       return list.addAll ( (Collection)group);
-       //TODO как реализовать? сейчас ошибка
-    }
-
-    public void clear () {
-        list.removeAll ( list );
-    }
-
-    public Shape get ( int index ) {
-        Shape shape = list.get(index);
-        return shape;
-    }
-
-    public boolean removeAll ( Collection c ) {
-        return list.removeAll ( c );
-    }
-
+//    public int size () {
+//        return list.size ( );
+//    }
+//
+//    public boolean isEmpty () {
+//        return list.isEmpty ( );
+//    }
+//
+//    public void add ( Shape shape ) {
+//        list.add ( shape );
+//    }
+//
+//    public boolean remove ( Shape shape ) {
+//        return list.remove ( shape );
+//    }
+//
+//    public Shape remove ( int indx ) {
+//        return list.remove ( indx );
+//    }
+//
+//    public boolean addAll ( Group group ) {
+//       return list.addAll ( (Collection)group);
+//       //TODO как реализовать? сейчас ошибка
+//    }
+//
+//    public void clear () {
+//        list.removeAll ( list );
+//    }
+//
+//    public Shape get ( int index ) {
+//        Shape shape = list.get(index);
+//        return shape;
+//    }
+//
+//    public boolean removeAll ( Collection c ) {
+//        return list.removeAll ( c );
+//    }
+//
 
 
     public double getSumAreas () {
@@ -86,7 +86,7 @@ public class Group {
     @Override
     public String toString () {
         final StringBuilder sb = new StringBuilder ( "{" );
-        sb.append ( "" ).append ( list );
+        sb.append ( "dsfg" ).append ( list.toString () );
         sb.append ( '}' );
         return sb.toString ( );
     }
