@@ -59,6 +59,7 @@ public class Group extends ArrayList<Shape> {
             sum += shape.getArea ( );
         }
         return sum;
+        //return list.stream().mapToDouble (  )reduce(0, (x, y) -> x.getArea () + y.getArea ());
     }
 
     public double getMaxArea(){
