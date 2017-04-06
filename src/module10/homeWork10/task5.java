@@ -13,7 +13,7 @@ public class task5 {
 
         try {
             throwsTreeExceptions();
-        } catch (Exception e) {
+        } catch (MyArithmeticException | MyNullPointerException | MyIOException e) {
             System.out.println ("Catch!!!" );
         }
     }
