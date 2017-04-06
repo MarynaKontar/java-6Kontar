@@ -13,7 +13,7 @@ public class task5 {
 
         try {
             throwsTreeExceptions();
-        } catch (MyArithmeticException | MyNullPointerException | MyIOException e) {
+        } catch (MyNumberFormatException | MyNullPointerException | MyIOException e) {
             System.out.println ("Catch!!!" );
         }
     }
@@ -21,14 +21,14 @@ public class task5 {
     private static void throwsTreeExceptions () throws MyIOException {
 
         try{
-            throw new MyArithmeticException("1");
-        } catch (MyArithmeticException e){
+            throw new MyNumberFormatException ( );
+        } catch (MyNumberFormatException e){
             try{
             throw new MyNullPointerException();
             } catch (MyNullPointerException e1){
             }
         }
 
-        throw new MyIOException("2");
+        throw new MyIOException("Throw MyIOException.");
     }
 }
