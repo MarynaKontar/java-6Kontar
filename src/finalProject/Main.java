@@ -29,6 +29,18 @@ package finalProject;
 public class Main {
 
     /**
+
+     try {
+     //1. Choose what DB we use and maybe some other settings
+     dataBaseManager = configDB();
+     } catch (Exception e) {
+     System.out.println("Catch configDB exception");
+     }
+
+
+     private BufferedReader br = null;
+     System.out.println("Hello! Welcome to our project! ");
+     *
      *         while (true) {
 
      System.out.println(
