@@ -25,16 +25,19 @@ public final class Orders {
 
     public static void sortByPriceAndUserCity ( List <Order> orders ) {
         orders.sort ( Comparator.comparing ( Order::getPrice )
-                .thenComparing ( ( o1, o2 ) -> o1.getUser ( ).getCity ( ).compareTo ( o2.getUser ( ).getCity ( ) ) ) );
+                .thenComparing ( o ->  o.getUser ().getCity ()) );
 
         //TODO 1.  .thenComparing (Order::getUser().getCity(), Comparator.naturalOrder () ) );    не выходит
+        //Да, действительно, через ссылочные методы 2-й вызов метода не получается,
+        // но можно сократить вот так скомбинировав оба подхода.
+        // .thenComparing ( o1 -> o1.getUser().getCity() ) ); }
     }
 
     public static void sortByItemAndShopIdAndUserCity ( List <Order> orders ) {
         orders.sort ( Comparator
                 .comparing ( Order::getItemName )
                 .thenComparing ( Order::getShopIdentificator )
-                .thenComparing ( ( o1, o2 ) -> o1.getUser ( ).getCity ( ).compareTo ( o2.getUser ( ).getCity ( ) ) ) );
+                .thenComparing (  o ->  o.getUser ().getCity () ) );
     }
 
     public static List <Order> getUniqueOrders ( List <Order> orders ) {
