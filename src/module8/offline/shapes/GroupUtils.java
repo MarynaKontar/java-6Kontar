@@ -13,14 +13,14 @@ public class GroupUtils {
     }
 
     public static double minArea(Group group){
-//        if (group.isEmpty ()) return 0.0;
-//        Iterator<Shape> iterator = group.iterator ();
-//        double minArea = iterator.next ().getArea ();
-//        for ( Shape shape : group ) {
-//            if (shape.getArea () < minArea)
-//                minArea = shape.getArea ();
-//        }
-//        return minArea;
+        if (group.isEmpty ()) return 0.0;
+        Iterator<Shape> iterator = group.iterator ();
+        double minArea = iterator.next ().getArea ();
+        for ( Shape shape : group ) {
+            if (shape.getArea () < minArea)
+                minArea = shape.getArea ();
+        }
+        return minArea;
    return 0.0;
    //TODO прописать итератор в Group
    }
