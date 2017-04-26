@@ -1,5 +1,10 @@
 package finalProject;
 
+import java.util.Date;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
 /**
  * Project: Hotel online booking system
  *
@@ -106,3 +111,114 @@ public class Main {
 
 
 }
+
+
+//
+//
+//    private static DataBaseManager dbManager;
+//    private final static DaoHotel DAOHotel = dbManager.getDaoHotel();
+//    private final static DaoUser DAOUser = dbManager.getDaoUser();
+//    private final static DaoRoom DAORoom = dbManager.getDaoRoom();
+//    private final static DaoReservation DAOReservation = dbManager.getDaoReservation();
+//
+//    private final static List<Hotel> allHotels = DAOHotel.getAll();
+//    private final static List<User> allUsers = DAOUser.getAll();
+//    private final static List<Room> allRooms = DAORoom.getAll();
+//    private final static List<Reservation> allReservation = DAOReservation.getAll();
+//
+// public ProjectController(DataBaseManager dbManager) {
+// this.dbManager = dbManager;
+// }
+//
+//
+// /**
+// * TODO Игорю на проверку
+// * Kontar Maryna:
+// * Method create account for user with name, login and password
+// * if there isn't account with this name and login.
+// * Returns the user if an account is created
+// *
+// * @param name
+// * @param login
+// * @param password
+// * @return
+// */
+//public User createAccount(String name, String login, String password) throws AccountAlreadyExistException {
+//
+//    User user = new User(name, login, password);
+//    if (allUsers.stream()
+//            .anyMatch((User o) -> o.getName() == name || o.getLogin() == login)) {
+//        throw new AccountAlreadyExistException("Account with this name or login already exists");
+//    }
+//    DAOUser.create(user);
+//    return user;
+//}
+//
+//    /**
+//     * Kontar Maryna:
+//     *
+//     * @param user
+//     * @param room
+//     * @param hotel
+//     * @param dataOfArrival
+//     * @param dateOfDeparture
+//     * @return
+//     */
+//    public Reservation reserveRoom( User user, Room room, Hotel hotel, Date dataOfArrival, Date dateOfDeparture) {
+//        if ( hotel.getHotelRooms().stream().noneMatch(roomAtHotel -> roomAtHotel.equals(room)) ||  )
+//
+//            return DAOReservation
+//                    .create(new Reservation(user, room, hotel, dataOfArrival, dateOfDeparture));
+//
+//        //TODO как сохранить теперь это в БД, и как добавить в список заказа user? Функция должна быть с входными параметрами
+//
+//    }
+//
+//    public boolean cancelRoomReservation() {
+//        throw new UnsupportedOperationException();
+//    }
+//
+//    /**
+//     * TODO Игорю на проверку
+//     * method can throw NoSuchElementException("No value present")
+//     * Может надо словить это исключение и кинуть вместо него исключение, к-ое extend от FrontendException?
+//     * <p>
+//     * Kontar Maryna:
+//     * return hotel if it's exist and throw NoSuchElementException if isn't
+//     *
+//     * @param hotelName
+//     * @return
+//     */
+//    public Hotel findHotelByHotelName(String hotelName) throws NoSuchElementException {
+//        return allHotels.stream()
+//                .filter((Hotel hotel) -> hotel.getHotelName().equals(hotelName))
+//                .findFirst().get();
+//    }
+//
+//    public List<Hotel> findHotelByCityName( String cityName) throws NoSuchElementException {
+//        // access database
+//        //DaoHotel hotelDAO = new DaoHotel();
+//        //List <Hotel> cityHotels = hotelDAO.getAll();
+//        return allHotels.stream()
+//                .filter((Hotel hotel) -> hotel.getHotelCity().equals(cityName))
+//                .collect( Collectors.toList());
+//    }
+//
+//    public List<Room> findRoomInHotel(Hotel hotel) {
+//
+//        return hotel.getHotelRooms();
+//
+//    }
+
+
+
+
+
+
+//
+//public class AccountAlreadyExistException extends FrontendException {
+//
+//    public AccountAlreadyExistException(String message) {
+//        super(message);
+//    }
+//}

@@ -7,29 +7,19 @@ import java.util.List;
  */
 public class Division {
     private String divisionName;
+    private List<Person> listPerson;
+
+    public Division ( String divisionName, List <Person> listPerson ) {
+        this.divisionName = divisionName;
+        this.listPerson = listPerson;
+    }
 
     public String getDivisionName() {
         return divisionName;
     }
 
-    public void setDivisionName(String divisionName) {
-        this.divisionName = divisionName;
+    public List<Person> getListPerson () {
+        return listPerson;
     }
 
-    private List<Person> persons;
-
-    public Division() {
-    }
-
-    public Division(List<Person> persons) {
-        this.persons = persons;
-    }
-
-    public List<Person> getPersons() {
-        return persons;
-    }
-
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
-    }
 }

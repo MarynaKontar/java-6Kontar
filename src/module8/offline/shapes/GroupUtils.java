@@ -21,7 +21,7 @@ public class GroupUtils {
                 minArea = shape.getArea ();
         }
         return minArea;
-   return 0.0;
+//   return 0.0;
    //TODO прописать итератор в Group
    }
 

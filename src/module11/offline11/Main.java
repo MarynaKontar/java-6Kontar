@@ -1,48 +1,61 @@
 package module11.offline11;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Created by User on 20.04.2017.
+ * Есть компания, в ней два отдела (division). В каждом отделе по три работника.
+ * Работники могут работать в разных отделах и компаниях (т.е. могут повторяться)
+ * Написать функцию, которой дается список компаний, а она выводит список работнков
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main ( String[] args ) {
 
-        Person person1 = new Person("Peter1", "Parker1");
-        Person person2 = new Person("Peter2", "Parker2");
-        Person person3 = new Person("Peter3", "Parker3");
-        Person person4 = new Person("Peter4", "Parker4");
-        Person person5 = new Person("Peter5", "Parker5");
-        Person person6 = new Person("Peter6", "Parker6");
-        Person person7 = new Person("Peter7", "Parker7");
-        Person person8 = new Person("Peter8", "Parker8");
+        // prepare data
+        List <Company> listCompanies = new ArrayList <> ( );
+        listCompanies.add ( createCompany ( "Oranta" ) );
+        listCompanies.add ( createCompany ( "ATB" ) );
+        listCompanies.add ( createCompany ( "Private Bank" ) );
 
-        Division division1 = new Division(Arrays.asList(new Person[]{person1, person2}));
-        Division division2 = new Division(Arrays.asList(new Person[]{person2, person5}));
-        Division division3 = new Division(Arrays.asList(new Person[]{person2, person8}));
-        Division division4 = new Division(Arrays.asList(new Person[]{person3, person7}));
-        Division division5 = new Division(Arrays.asList(new Person[]{person4, person8}));
-        Division division6 = new Division(Arrays.asList(new Person[]{person4, person5}));
+        // execute code
+        // Вывести список всех работников из списка компаний (работников без повторений)
+        List <String> lastNames = getLastNamesList ( listCompanies );
 
-        Company company1 = new Company("JAVA", Arrays.asList(new Division[]{division1, division3}));
-        Company company2 = new Company("JAVA", Arrays.asList(new Division[]{division4, division5}));
-
-        List<Company> listCompanies = new ArrayList<>();
-        listCompanies.add(company1);
-        listCompanies.add(company2);
-
+        // check the result
+        lastNames.forEach ( System.out::println );
 
     }
 
-    List<String> getCompaniesPersonsSecondName(ArrayList<Company> companies) {
-        companies.stream().map(company -> company.getDivisions().stream())
-                .map(divisionsList -> divisionsList.)
-    return companies.stream()
-            .distinct().;
+    private static Company createCompany ( String companyName ) {
+        List <Division> listDivisions = new ArrayList <> ( );
+
+        listDivisions.add ( createDivision ( "IT", companyName ) );
+        listDivisions.add ( createDivision ( "Finance", companyName ) );
+
+        return new Company ( listDivisions );
+    }
+
+    private static Division createDivision ( String divisionName, String companyName ) {
+
+        List <Person> listPerson = new ArrayList <> ( );
+        listPerson.add ( new Person ( "Peter1", companyName + "Parker1" ) );
+        listPerson.add ( new Person ( "Peter2", companyName + divisionName + "Parker2" ) );
+        listPerson.add ( new Person ( "Peter3", companyName + divisionName + "Parker3" ) );
+        return new Division ( divisionName, listPerson );
+    }
+
+    private static List <String> getLastNamesList ( List <Company> listCompanies ) {
+        return listCompanies.stream ( )
+                .flatMap ( company -> company.getListDivision ( ).stream ( ) )
+//                .filter ( division -> division.getDivisionName ().equalsIgnoreCase ( "IT" ) )//оставить в стриме только те, у которых имя отдела - IT
+                .flatMap ( division -> division.getListPerson ( ).stream ( ) )
+//                .limit ( 5 ) //оставить только первые пять person
+                .map ( person -> person.getLastName ( ) )
+                .distinct ( )//только уникальные
+                .collect ( Collectors.toList ( ) );
     }
 }
 
