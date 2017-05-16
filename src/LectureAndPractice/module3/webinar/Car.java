@@ -1,15 +1,23 @@
 package LectureAndPractice.module3.webinar;
 
+import java.io.Serializable;
 import java.util.Vector;
 
-public class Car extends Vehicle implements Comparable<Vehicle>{
+public class Car extends Vehicle implements Comparable<Vehicle>, Serializable{
+    public String getName () {
+        return name;
+    }
+
+    String name;
     int year;
     String model;
     int price;
     String nameOfTheOwner;
 
+    public Car () {
+    }
 
-    public Car(String model, int year) {
+    public Car( String model, int year) {
         this.model = model;
         this.year = year;
     }
@@ -76,5 +84,9 @@ public class Car extends Vehicle implements Comparable<Vehicle>{
 
     public int getYear () {
         return year;
+    }
+
+    public void setName ( String name ) {
+        this.name = name;
     }
 }
