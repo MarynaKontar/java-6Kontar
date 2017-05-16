@@ -7,8 +7,8 @@ import java.io.File;
  */
 public class CreateDir {
     public static void main(String args[]) {
-        String dirname = "/tmp/user/java/bin";
-        /**создаст C: tmp.user.java.bin*/
+        String dirname = "C:\\Users\\User\\IdeaProjects\\javaCore6Kontar\\src\\module11\\testDirectory";
+        /**создаст C: tmp.user.java.bin*/     //(/tmp/user/java/bin)
         File d = new File (dirname);
 
         // Create directory now.
