@@ -26,8 +26,10 @@ public class EntityInputStream implements EntityInput {
 
     @Override
     public Point readPoint() throws IOException {
+        int shift = Integer.SIZE - 4;
         int value = input.readInt();
         int x = value >> 4;
-        return null;
+        int y = (value << shift) >>> shift;
+        return new Point(x, y);
     }
 }
