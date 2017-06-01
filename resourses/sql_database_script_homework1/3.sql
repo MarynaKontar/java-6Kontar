@@ -4,28 +4,15 @@ use homework_1;
 
 CREATE OR REPLACE VIEW task3_Java_salaries AS
     SELECT 
-        skills.*, SUM(developers.DEVELOPER_SALARY) AS total_salary
+        skills.SKILL_NAME, SUM(developers.DEVELOPER_SALARY) AS total_salary
     FROM
         developers
             INNER JOIN
-        developer_skill
+        developer_skill ON developers.DEVELOPER_ID = developer_skill.DEVELOPER_ID
             INNER JOIN
-        skills ON developers.DEVELOPER_ID = developer_skill.DEVELOPER_ID
-            AND developer_skill.SKILL_ID = skills.SKILL_ID
+        skills ON developer_skill.SKILL_ID = skills.SKILL_ID
     WHERE
         skills.SKILL_NAME LIKE 'Java';
  
- 
- #use homework_1;
- 
- #CREATE VIEW task3_Java_salaries AS
-#SELECT
- # skills.*,
-#  sum(developers.DEVELOPER_SALARY) AS total_salary
-#FROM  
- #  developers JOIN developer_skill ON developers.DEVELOPER_ID = developer_skill.DEVELOPER_ID
- # JOIN skills ON skills.SKILL_ID = developer_skill.SKILL_ID
-#WHERE skills.SKILL_NAME LIKE 'Java';
-
 
 SELECT * FROM homework_1.task3_java_salaries;
